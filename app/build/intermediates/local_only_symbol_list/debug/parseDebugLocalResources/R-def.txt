@@ -1,0 +1,31 @@
+R_DEF: Internal format may change without notice
+local
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string call_next
+string complete
+string error_clinic_not_configured
+string error_no_network
+string error_no_services
+string gcm_defaultSenderId
+string generate_token
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
+string mode_counter
+string mode_display
+string mode_reception
+string mode_settings
+string no_tokens_waiting
+string now_serving
+string please_wait
+string project_id
+string recall
+string reprint_token
+string skip
+string waiting
+style Theme.CueCall

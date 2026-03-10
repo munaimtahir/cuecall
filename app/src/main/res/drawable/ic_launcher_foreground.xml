@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Simple "Q" letter mark for CueCall -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,28C40.75,28 30,38.75 30,52C30,65.25 40.75,76 54,76
+                          C58.5,76 62.7,74.7 66.2,72.5L72,78.3L76.3,74L70.5,68.2
+                          C72.7,64.7 74,60.5 74,56V52C74,38.75 67.25,28 54,28Z
+                          M54,68C45.16,68 38,60.84 38,52C38,43.16 45.16,36 54,36
+                          C62.84,36 70,43.16 70,52V56C70,58.5 69.4,60.8 68.3,62.8
+                          L62,56.5L57.7,60.8L64,67.1C61.1,67.7 57.6,68 54,68Z" />
+</vector>

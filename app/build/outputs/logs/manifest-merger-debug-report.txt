@@ -1,0 +1,749 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:2:1-38:12
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /home/munaim/.gradle/caches/transforms-4/9cd3f7f38f4843273d06ffc85ecf1ec1/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /home/munaim/.gradle/caches/transforms-4/a2e9565ef6e56857770a3e6b6785b03f/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.7.7] /home/munaim/.gradle/caches/transforms-4/e1143f1f19649c43dad445b2fa2a23b9/transformed/navigation-common-2.7.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /home/munaim/.gradle/caches/transforms-4/07fad5817af6d977303d28e07da6a4b3/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /home/munaim/.gradle/caches/transforms-4/ceb8b74b2e981fe1423c65284460b4a4/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /home/munaim/.gradle/caches/transforms-4/5f5ac3804ea81991de81cfc138bbc8cd/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /home/munaim/.gradle/caches/transforms-4/a4cc8d12e605f45c3f6291ec4d5df53c/transformed/navigation-compose-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /home/munaim/.gradle/caches/transforms-4/b462428cd9a43499ad8a448a526b389b/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:hilt-android:2.51.1] /home/munaim/.gradle/caches/transforms-4/d984ffd6652b5fe6e0448dc5e73b1a61/transformed/hilt-android-2.51.1/AndroidManifest.xml:16:1-19:12
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:17:1-75:12
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /home/munaim/.gradle/caches/transforms-4/f37ed6476deae75d3dee49f73eb82838/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] /home/munaim/.gradle/caches/transforms-4/2d5225460e87d8fb09c480652fe3545d/transformed/firebase-database-collection-18.0.1/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/badc1f676bbc94e52b91698c743f8e32/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /home/munaim/.gradle/caches/transforms-4/c37a15de7c5c2b7a2d6d35ad942fa661/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /home/munaim/.gradle/caches/transforms-4/3688be4fd1125e81ddc962f04b3307e3/transformed/play-services-fido-20.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /home/munaim/.gradle/caches/transforms-4/78ed0889e7b1b5cd44a2ae1d0ba045bc/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /home/munaim/.gradle/caches/transforms-4/e19509f50a3cfeb88b1d7773ec51c21f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:15:1-41:12
+MERGED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.6.1] /home/munaim/.gradle/caches/transforms-4/7d33f3b95320e09186fce819a23fb654/transformed/room-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/munaim/.gradle/caches/transforms-4/5940eb82eee388deef5b694b99e3ae37/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/3ef732856092cc28af6580be950e3bae/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/769f141e4173e138bac1596516b35e76/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/35d1deb500d245930c4dbc22940cc8b1/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/f6e8661a2a17b62ef49001a4a3f3a321/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/9538b3b1e4f535efccbdaf4abcfa85ec/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/a24a07037e59b820519cf5dc502a41e3/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/dbf7f26359a88504598d67423e145206/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/6d3e44d64b51a19e2129183d16a101d6/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/f54c87d2c0f2ec60afa88020484e8448/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/4adc0acf091365b254fe6141f4843a16/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/cd4754fd4105717c594e0d778011e499/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/189e366a502ae04b4434cb7da864ae0d/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/8282053cc567835c5a435defc56ed92b/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/5da733a8ca723294d5edb5d069650c32/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/b4677f77bbccff6599a613419c48b57e/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /home/munaim/.gradle/caches/transforms-4/cb276b5e95954c08d27d79532f1c4f5c/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /home/munaim/.gradle/caches/transforms-4/90db1f1433c7d870b4931ec619cca1e9/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /home/munaim/.gradle/caches/transforms-4/db947bdd5be0685c695e1650217b2717/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/88615f9a8a25bf3a42ba592a28f6b8da/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/munaim/.gradle/caches/transforms-4/c61d4c37db8f3d6f63600eaf41634132/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/munaim/.gradle/caches/transforms-4/ba64ac12dd000a633eac53eeed1f6e19/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/40b88ac9012a3eb864fc0266778b4b73/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /home/munaim/.gradle/caches/transforms-4/b93816a4d96518b260ac9155a1ff89d0/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /home/munaim/.gradle/caches/transforms-4/f51fbc5b6eaa38b6b9a6cc13badb42d6/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d256f6bcce3a87b5af46bf9d42d3e5dd/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/66346e26e92666c5a1a7bfee4e7d7d49/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/cc1d27f70d7a2c0ef27f53deb65af457/transformed/datastore-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/ea2feaa03303992b6689b3aec13f5c70/transformed/datastore-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/6ae5d3f97ef270396401b951c268b460/transformed/datastore-preferences-release/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.play:integrity:1.2.0] /home/munaim/.gradle/caches/transforms-4/27d73c629bbe91fe2f094e5e11a18db0/transformed/integrity-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/munaim/.gradle/caches/transforms-4/a231ef5930e46fb50e6fb907bebba801/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.5.1] /home/munaim/.gradle/caches/transforms-4/4992e92b5de8ed116136d5b3d237b910/transformed/fragment-1.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /home/munaim/.gradle/caches/transforms-4/e994c7ed615bbf5cf3b4b13ad4092f6e/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/ff669e2d7031554d45a59c0da65a7369/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/fcc8b74b0944e71019e57ff5d8618b15/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/964c10568d19fc51ee9328dac50aa261/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/dbc9c7ca01b096335f428cfb5ca18512/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity-compose:1.9.0] /home/munaim/.gradle/caches/transforms-4/c17f56dd2c5049e6cf93d88a4631db7a/transformed/activity-compose-1.9.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.0] /home/munaim/.gradle/caches/transforms-4/aa3da621133e7328fab0026d454e99c2/transformed/activity-ktx-1.9.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.0] /home/munaim/.gradle/caches/transforms-4/31434f6c5eff63314be716948e1498e1/transformed/activity-1.9.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/munaim/.gradle/caches/transforms-4/c7452ad11cdf80da20b98b20d942f21f/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /home/munaim/.gradle/caches/transforms-4/53fc730c4c2199f9f3f36721f7ab34f0/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /home/munaim/.gradle/caches/transforms-4/44d87cf9aec94396e441dd89d338a8a8/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.browser:browser:1.4.0] /home/munaim/.gradle/caches/transforms-4/a03cf0128f6d8160c55175b5b88db8db/transformed/browser-1.4.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/munaim/.gradle/caches/transforms-4/52092e406dde9b8d204c8cffa5b29e85/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.13.1] /home/munaim/.gradle/caches/transforms-4/dfb8437a5c1d16d9bf29841d657d5af4/transformed/core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /home/munaim/.gradle/caches/transforms-4/d8deda40168a0e9ceaab523020b313a6/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.4.0] /home/munaim/.gradle/caches/transforms-4/28d9c980eb1e89b6198292109d2763cb/transformed/sqlite-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /home/munaim/.gradle/caches/transforms-4/92c4ef1eb1dcdcbd793f71f851b13d60/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /home/munaim/.gradle/caches/transforms-4/e785ed293d3ad30fabb25d66ea31ca9b/transformed/googleid-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/munaim/.gradle/caches/transforms-4/eb5fa9b1fdd9e1ee0e2c35954508a403/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/munaim/.gradle/caches/transforms-4/dff6c498f856c5a1a6c4fecd3cff5158/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/munaim/.gradle/caches/transforms-4/9b0db4d77a806ab8bb551a2395bd0218/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] /home/munaim/.gradle/caches/transforms-4/1a7d3149b3daa1a4cd7d09ec866d0453/transformed/firebase-components-18.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/434175a6547d9336567b2fd45646b3ff/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/munaim/.gradle/caches/transforms-4/f15a6c7a4130923d58c405f8ed919f4c/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/munaim/.gradle/caches/transforms-4/791a43bd913566e0f5b1eb8c83d88058/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.51.1] /home/munaim/.gradle/caches/transforms-4/7d1d8f0b54404e276fab61e247d1ec44/transformed/dagger-lint-aar-2.51.1/AndroidManifest.xml:16:1-19:12
+MERGED from [io.grpc:grpc-android:1.57.2] /home/munaim/.gradle/caches/transforms-4/70fdbbe6b192e2d5fe72dfac6e52f182/transformed/grpc-android-1.57.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/munaim/.gradle/caches/transforms-4/57cb8b882bfc0b70172a602630e4aed4/transformed/protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
+	package
+		INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.BLUETOOTH
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:5:5-95
+	android:maxSdkVersion
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:5:66-92
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:5:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:6:5-101
+	android:maxSdkVersion
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:6:72-98
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:6:22-71
+uses-permission#android.permission.BLUETOOTH_CONNECT
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:7:5-76
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:7:22-73
+uses-permission#android.permission.BLUETOOTH_SCAN
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:8:5-73
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:8:22-70
+uses-permission#android.permission.INTERNET
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:12:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:8:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] /home/munaim/.gradle/caches/transforms-4/70fdbbe6b192e2d5fe72dfac6e52f182/transformed/grpc-android-1.57.2/AndroidManifest.xml:7:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] /home/munaim/.gradle/caches/transforms-4/70fdbbe6b192e2d5fe72dfac6e52f182/transformed/grpc-android-1.57.2/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:15:5-68
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:15:22-65
+application
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:17:5-36:19
+INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:17:5-36:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /home/munaim/.gradle/caches/transforms-4/f37ed6476deae75d3dee49f73eb82838/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /home/munaim/.gradle/caches/transforms-4/f37ed6476deae75d3dee49f73eb82838/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /home/munaim/.gradle/caches/transforms-4/3688be4fd1125e81ddc962f04b3307e3/transformed/play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /home/munaim/.gradle/caches/transforms-4/3688be4fd1125e81ddc962f04b3307e3/transformed/play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /home/munaim/.gradle/caches/transforms-4/e19509f50a3cfeb88b1d7773ec51c21f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /home/munaim/.gradle/caches/transforms-4/e19509f50a3cfeb88b1d7773ec51c21f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.play:integrity:1.2.0] /home/munaim/.gradle/caches/transforms-4/27d73c629bbe91fe2f094e5e11a18db0/transformed/integrity-1.2.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.2.0] /home/munaim/.gradle/caches/transforms-4/27d73c629bbe91fe2f094e5e11a18db0/transformed/integrity-1.2.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/munaim/.gradle/caches/transforms-4/a231ef5930e46fb50e6fb907bebba801/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/munaim/.gradle/caches/transforms-4/a231ef5930e46fb50e6fb907bebba801/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/munaim/.gradle/caches/transforms-4/9b0db4d77a806ab8bb551a2395bd0218/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/munaim/.gradle/caches/transforms-4/9b0db4d77a806ab8bb551a2395bd0218/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/434175a6547d9336567b2fd45646b3ff/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/434175a6547d9336567b2fd45646b3ff/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:23:9-35
+	android:label
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:21:9-41
+	android:roundIcon
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:22:9-54
+	android:icon
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:20:9-43
+	android:allowBackup
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:19:9-35
+	android:theme
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:24:9-45
+	android:usesCleartextTraffic
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:25:9-45
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:18:9-43
+activity#com.cuecall.app.MainActivity
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:27:9-35:20
+	android:windowSoftInputMode
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:30:13-55
+	android:exported
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:29:13-36
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:28:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:31:13-34:29
+action#android.intent.action.MAIN
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:32:17-69
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:32:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:33:17-77
+	android:name
+		ADDED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml:33:27-74
+uses-sdk
+INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /home/munaim/.gradle/caches/transforms-4/9cd3f7f38f4843273d06ffc85ecf1ec1/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /home/munaim/.gradle/caches/transforms-4/9cd3f7f38f4843273d06ffc85ecf1ec1/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /home/munaim/.gradle/caches/transforms-4/a2e9565ef6e56857770a3e6b6785b03f/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /home/munaim/.gradle/caches/transforms-4/a2e9565ef6e56857770a3e6b6785b03f/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] /home/munaim/.gradle/caches/transforms-4/e1143f1f19649c43dad445b2fa2a23b9/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] /home/munaim/.gradle/caches/transforms-4/e1143f1f19649c43dad445b2fa2a23b9/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /home/munaim/.gradle/caches/transforms-4/07fad5817af6d977303d28e07da6a4b3/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /home/munaim/.gradle/caches/transforms-4/07fad5817af6d977303d28e07da6a4b3/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /home/munaim/.gradle/caches/transforms-4/ceb8b74b2e981fe1423c65284460b4a4/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /home/munaim/.gradle/caches/transforms-4/ceb8b74b2e981fe1423c65284460b4a4/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /home/munaim/.gradle/caches/transforms-4/5f5ac3804ea81991de81cfc138bbc8cd/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /home/munaim/.gradle/caches/transforms-4/5f5ac3804ea81991de81cfc138bbc8cd/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /home/munaim/.gradle/caches/transforms-4/a4cc8d12e605f45c3f6291ec4d5df53c/transformed/navigation-compose-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /home/munaim/.gradle/caches/transforms-4/a4cc8d12e605f45c3f6291ec4d5df53c/transformed/navigation-compose-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /home/munaim/.gradle/caches/transforms-4/b462428cd9a43499ad8a448a526b389b/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /home/munaim/.gradle/caches/transforms-4/b462428cd9a43499ad8a448a526b389b/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:hilt-android:2.51.1] /home/munaim/.gradle/caches/transforms-4/d984ffd6652b5fe6e0448dc5e73b1a61/transformed/hilt-android-2.51.1/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:hilt-android:2.51.1] /home/munaim/.gradle/caches/transforms-4/d984ffd6652b5fe6e0448dc5e73b1a61/transformed/hilt-android-2.51.1/AndroidManifest.xml:18:3-42
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /home/munaim/.gradle/caches/transforms-4/f37ed6476deae75d3dee49f73eb82838/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /home/munaim/.gradle/caches/transforms-4/f37ed6476deae75d3dee49f73eb82838/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] /home/munaim/.gradle/caches/transforms-4/2d5225460e87d8fb09c480652fe3545d/transformed/firebase-database-collection-18.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] /home/munaim/.gradle/caches/transforms-4/2d5225460e87d8fb09c480652fe3545d/transformed/firebase-database-collection-18.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/badc1f676bbc94e52b91698c743f8e32/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/badc1f676bbc94e52b91698c743f8e32/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /home/munaim/.gradle/caches/transforms-4/c37a15de7c5c2b7a2d6d35ad942fa661/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /home/munaim/.gradle/caches/transforms-4/c37a15de7c5c2b7a2d6d35ad942fa661/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /home/munaim/.gradle/caches/transforms-4/3688be4fd1125e81ddc962f04b3307e3/transformed/play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /home/munaim/.gradle/caches/transforms-4/3688be4fd1125e81ddc962f04b3307e3/transformed/play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /home/munaim/.gradle/caches/transforms-4/78ed0889e7b1b5cd44a2ae1d0ba045bc/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /home/munaim/.gradle/caches/transforms-4/78ed0889e7b1b5cd44a2ae1d0ba045bc/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /home/munaim/.gradle/caches/transforms-4/e19509f50a3cfeb88b1d7773ec51c21f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /home/munaim/.gradle/caches/transforms-4/e19509f50a3cfeb88b1d7773ec51c21f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /home/munaim/.gradle/caches/transforms-4/7d33f3b95320e09186fce819a23fb654/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /home/munaim/.gradle/caches/transforms-4/7d33f3b95320e09186fce819a23fb654/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/munaim/.gradle/caches/transforms-4/5940eb82eee388deef5b694b99e3ae37/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/munaim/.gradle/caches/transforms-4/5940eb82eee388deef5b694b99e3ae37/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/3ef732856092cc28af6580be950e3bae/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/3ef732856092cc28af6580be950e3bae/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/769f141e4173e138bac1596516b35e76/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/769f141e4173e138bac1596516b35e76/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/35d1deb500d245930c4dbc22940cc8b1/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/35d1deb500d245930c4dbc22940cc8b1/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/f6e8661a2a17b62ef49001a4a3f3a321/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/f6e8661a2a17b62ef49001a4a3f3a321/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/9538b3b1e4f535efccbdaf4abcfa85ec/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/9538b3b1e4f535efccbdaf4abcfa85ec/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/a24a07037e59b820519cf5dc502a41e3/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/a24a07037e59b820519cf5dc502a41e3/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/dbf7f26359a88504598d67423e145206/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/dbf7f26359a88504598d67423e145206/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/6d3e44d64b51a19e2129183d16a101d6/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/6d3e44d64b51a19e2129183d16a101d6/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/f54c87d2c0f2ec60afa88020484e8448/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/f54c87d2c0f2ec60afa88020484e8448/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/4adc0acf091365b254fe6141f4843a16/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/4adc0acf091365b254fe6141f4843a16/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/cd4754fd4105717c594e0d778011e499/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/cd4754fd4105717c594e0d778011e499/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/189e366a502ae04b4434cb7da864ae0d/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/189e366a502ae04b4434cb7da864ae0d/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/8282053cc567835c5a435defc56ed92b/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/8282053cc567835c5a435defc56ed92b/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/5da733a8ca723294d5edb5d069650c32/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/5da733a8ca723294d5edb5d069650c32/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/b4677f77bbccff6599a613419c48b57e/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/b4677f77bbccff6599a613419c48b57e/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /home/munaim/.gradle/caches/transforms-4/cb276b5e95954c08d27d79532f1c4f5c/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /home/munaim/.gradle/caches/transforms-4/cb276b5e95954c08d27d79532f1c4f5c/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /home/munaim/.gradle/caches/transforms-4/90db1f1433c7d870b4931ec619cca1e9/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /home/munaim/.gradle/caches/transforms-4/90db1f1433c7d870b4931ec619cca1e9/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /home/munaim/.gradle/caches/transforms-4/db947bdd5be0685c695e1650217b2717/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /home/munaim/.gradle/caches/transforms-4/db947bdd5be0685c695e1650217b2717/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/88615f9a8a25bf3a42ba592a28f6b8da/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/88615f9a8a25bf3a42ba592a28f6b8da/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/munaim/.gradle/caches/transforms-4/c61d4c37db8f3d6f63600eaf41634132/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/munaim/.gradle/caches/transforms-4/c61d4c37db8f3d6f63600eaf41634132/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/munaim/.gradle/caches/transforms-4/ba64ac12dd000a633eac53eeed1f6e19/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/munaim/.gradle/caches/transforms-4/ba64ac12dd000a633eac53eeed1f6e19/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/40b88ac9012a3eb864fc0266778b4b73/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/40b88ac9012a3eb864fc0266778b4b73/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /home/munaim/.gradle/caches/transforms-4/b93816a4d96518b260ac9155a1ff89d0/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /home/munaim/.gradle/caches/transforms-4/b93816a4d96518b260ac9155a1ff89d0/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /home/munaim/.gradle/caches/transforms-4/f51fbc5b6eaa38b6b9a6cc13badb42d6/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /home/munaim/.gradle/caches/transforms-4/f51fbc5b6eaa38b6b9a6cc13badb42d6/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d256f6bcce3a87b5af46bf9d42d3e5dd/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d256f6bcce3a87b5af46bf9d42d3e5dd/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/66346e26e92666c5a1a7bfee4e7d7d49/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/66346e26e92666c5a1a7bfee4e7d7d49/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/cc1d27f70d7a2c0ef27f53deb65af457/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/cc1d27f70d7a2c0ef27f53deb65af457/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/ea2feaa03303992b6689b3aec13f5c70/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/ea2feaa03303992b6689b3aec13f5c70/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/6ae5d3f97ef270396401b951c268b460/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /home/munaim/.gradle/caches/transforms-4/6ae5d3f97ef270396401b951c268b460/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.play:integrity:1.2.0] /home/munaim/.gradle/caches/transforms-4/27d73c629bbe91fe2f094e5e11a18db0/transformed/integrity-1.2.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.play:integrity:1.2.0] /home/munaim/.gradle/caches/transforms-4/27d73c629bbe91fe2f094e5e11a18db0/transformed/integrity-1.2.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/munaim/.gradle/caches/transforms-4/a231ef5930e46fb50e6fb907bebba801/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/munaim/.gradle/caches/transforms-4/a231ef5930e46fb50e6fb907bebba801/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.5.1] /home/munaim/.gradle/caches/transforms-4/4992e92b5de8ed116136d5b3d237b910/transformed/fragment-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.1] /home/munaim/.gradle/caches/transforms-4/4992e92b5de8ed116136d5b3d237b910/transformed/fragment-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /home/munaim/.gradle/caches/transforms-4/e994c7ed615bbf5cf3b4b13ad4092f6e/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /home/munaim/.gradle/caches/transforms-4/e994c7ed615bbf5cf3b4b13ad4092f6e/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/ff669e2d7031554d45a59c0da65a7369/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/ff669e2d7031554d45a59c0da65a7369/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/fcc8b74b0944e71019e57ff5d8618b15/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/fcc8b74b0944e71019e57ff5d8618b15/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/964c10568d19fc51ee9328dac50aa261/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /home/munaim/.gradle/caches/transforms-4/964c10568d19fc51ee9328dac50aa261/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/dbc9c7ca01b096335f428cfb5ca18512/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/dbc9c7ca01b096335f428cfb5ca18512/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.9.0] /home/munaim/.gradle/caches/transforms-4/c17f56dd2c5049e6cf93d88a4631db7a/transformed/activity-compose-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.0] /home/munaim/.gradle/caches/transforms-4/c17f56dd2c5049e6cf93d88a4631db7a/transformed/activity-compose-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] /home/munaim/.gradle/caches/transforms-4/aa3da621133e7328fab0026d454e99c2/transformed/activity-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] /home/munaim/.gradle/caches/transforms-4/aa3da621133e7328fab0026d454e99c2/transformed/activity-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.0] /home/munaim/.gradle/caches/transforms-4/31434f6c5eff63314be716948e1498e1/transformed/activity-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.0] /home/munaim/.gradle/caches/transforms-4/31434f6c5eff63314be716948e1498e1/transformed/activity-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/munaim/.gradle/caches/transforms-4/c7452ad11cdf80da20b98b20d942f21f/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/munaim/.gradle/caches/transforms-4/c7452ad11cdf80da20b98b20d942f21f/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /home/munaim/.gradle/caches/transforms-4/53fc730c4c2199f9f3f36721f7ab34f0/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /home/munaim/.gradle/caches/transforms-4/53fc730c4c2199f9f3f36721f7ab34f0/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /home/munaim/.gradle/caches/transforms-4/44d87cf9aec94396e441dd89d338a8a8/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/munaim/.gradle/caches/transforms-4/44d87cf9aec94396e441dd89d338a8a8/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.4.0] /home/munaim/.gradle/caches/transforms-4/a03cf0128f6d8160c55175b5b88db8db/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] /home/munaim/.gradle/caches/transforms-4/a03cf0128f6d8160c55175b5b88db8db/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/munaim/.gradle/caches/transforms-4/52092e406dde9b8d204c8cffa5b29e85/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/munaim/.gradle/caches/transforms-4/52092e406dde9b8d204c8cffa5b29e85/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.13.1] /home/munaim/.gradle/caches/transforms-4/dfb8437a5c1d16d9bf29841d657d5af4/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /home/munaim/.gradle/caches/transforms-4/dfb8437a5c1d16d9bf29841d657d5af4/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /home/munaim/.gradle/caches/transforms-4/d8deda40168a0e9ceaab523020b313a6/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /home/munaim/.gradle/caches/transforms-4/d8deda40168a0e9ceaab523020b313a6/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /home/munaim/.gradle/caches/transforms-4/28d9c980eb1e89b6198292109d2763cb/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /home/munaim/.gradle/caches/transforms-4/28d9c980eb1e89b6198292109d2763cb/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /home/munaim/.gradle/caches/transforms-4/92c4ef1eb1dcdcbd793f71f851b13d60/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /home/munaim/.gradle/caches/transforms-4/92c4ef1eb1dcdcbd793f71f851b13d60/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /home/munaim/.gradle/caches/transforms-4/e785ed293d3ad30fabb25d66ea31ca9b/transformed/googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /home/munaim/.gradle/caches/transforms-4/e785ed293d3ad30fabb25d66ea31ca9b/transformed/googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/munaim/.gradle/caches/transforms-4/eb5fa9b1fdd9e1ee0e2c35954508a403/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/munaim/.gradle/caches/transforms-4/eb5fa9b1fdd9e1ee0e2c35954508a403/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/munaim/.gradle/caches/transforms-4/dff6c498f856c5a1a6c4fecd3cff5158/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/munaim/.gradle/caches/transforms-4/dff6c498f856c5a1a6c4fecd3cff5158/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/munaim/.gradle/caches/transforms-4/9b0db4d77a806ab8bb551a2395bd0218/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/munaim/.gradle/caches/transforms-4/9b0db4d77a806ab8bb551a2395bd0218/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-components:18.0.0] /home/munaim/.gradle/caches/transforms-4/1a7d3149b3daa1a4cd7d09ec866d0453/transformed/firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /home/munaim/.gradle/caches/transforms-4/1a7d3149b3daa1a4cd7d09ec866d0453/transformed/firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/434175a6547d9336567b2fd45646b3ff/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/434175a6547d9336567b2fd45646b3ff/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/munaim/.gradle/caches/transforms-4/f15a6c7a4130923d58c405f8ed919f4c/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/munaim/.gradle/caches/transforms-4/f15a6c7a4130923d58c405f8ed919f4c/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/munaim/.gradle/caches/transforms-4/791a43bd913566e0f5b1eb8c83d88058/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/munaim/.gradle/caches/transforms-4/791a43bd913566e0f5b1eb8c83d88058/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-lint-aar:2.51.1] /home/munaim/.gradle/caches/transforms-4/7d1d8f0b54404e276fab61e247d1ec44/transformed/dagger-lint-aar-2.51.1/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.51.1] /home/munaim/.gradle/caches/transforms-4/7d1d8f0b54404e276fab61e247d1ec44/transformed/dagger-lint-aar-2.51.1/AndroidManifest.xml:18:3-42
+MERGED from [io.grpc:grpc-android:1.57.2] /home/munaim/.gradle/caches/transforms-4/70fdbbe6b192e2d5fe72dfac6e52f182/transformed/grpc-android-1.57.2/AndroidManifest.xml:5:5-44
+MERGED from [io.grpc:grpc-android:1.57.2] /home/munaim/.gradle/caches/transforms-4/70fdbbe6b192e2d5fe72dfac6e52f182/transformed/grpc-android-1.57.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/munaim/.gradle/caches/transforms-4/57cb8b882bfc0b70172a602630e4aed4/transformed/protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/munaim/.gradle/caches/transforms-4/57cb8b882bfc0b70172a602630e4aed4/transformed/protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:23:9-148
+	android:targetSdkVersion
+		INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/munaim/srv/apps/cuecall/app/src/main/AndroidManifest.xml
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:10:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:9:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar
+ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /home/munaim/.gradle/caches/transforms-4/733d05805c0a3c20b06fae5608f9c077/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:12:17-119
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:35:13-45:29
+action#android.intent.action.VIEW
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:36:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:39:27-75
+data
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:41:17-44:51
+	android:path
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:43:21-37
+	android:host
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:42:21-49
+	android:scheme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:44:21-48
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:53:13-63:29
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /home/munaim/.gradle/caches/transforms-4/9ba1a3c4cb6ea87d46d078dc71865f65/transformed/firebase-auth-23.0.0/AndroidManifest.xml:70:17-109
+meta-data#com.google.firebase.components:com.google.firebase.firestore.ktx.FirebaseFirestoreLegacyRegistrar
+ADDED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore-ktx:25.0.0] /home/munaim/.gradle/caches/transforms-4/c6fd5ec051e4380399e2119e770988a4/transformed/firebase-firestore-ktx-25.0.0/AndroidManifest.xml:13:17-129
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
+ADDED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:17:13-19:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:19:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:18:17-122
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
+ADDED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:25.0.0] /home/munaim/.gradle/caches/transforms-4/8006ed5b8f30010e0dd1506a99ac5b67/transformed/firebase-firestore-25.0.0/AndroidManifest.xml:21:17-111
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/munaim/.gradle/caches/transforms-4/4397447e7c93dcd7fb4affceee1f766b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:35:13-76
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /home/munaim/.gradle/caches/transforms-4/5639a38d57f0bf824b6fc663984b04e6/transformed/play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/munaim/.gradle/caches/transforms-4/ebe0f5a109025be39f61034773eefe1e/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /home/munaim/.gradle/caches/transforms-4/28753f34af8718b90278a93ea84dc908/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /home/munaim/.gradle/caches/transforms-4/e9cf355e8f52d12b1df3522bff8ae65c/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/de3d3706eec9a1a8309587cb95b96171/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/434175a6547d9336567b2fd45646b3ff/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/434175a6547d9336567b2fd45646b3ff/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/munaim/.gradle/caches/transforms-4/bb3c7327ebdec0ef943bb63ab57cc620/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /home/munaim/.gradle/caches/transforms-4/6f694f8b862da67b5dc4bda655223d5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:30:17-78
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:9:5-98
+	android:name
+		ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] /home/munaim/.gradle/caches/transforms-4/b80d461d679dc37cc936ca8eea608e3f/transformed/recaptcha-18.4.0/AndroidManifest.xml:9:22-95
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /home/munaim/.gradle/caches/transforms-4/c6cdf6a76e609adf813f98e6f931df78/transformed/play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.8] /home/munaim/.gradle/caches/transforms-4/0234ab03c23c3deb479ca29a9079d927/transformed/ui-test-manifest-1.6.8/AndroidManifest.xml:24:13-63
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/d424c9d43df28bedfdc287ebd33b7c7d/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.cuecall.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.cuecall.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/8401936e9400ca462752054870d6ec19/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gradle/caches/transforms-4/07c50daa4abd8ff41e8b6cb72bae8a05/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92

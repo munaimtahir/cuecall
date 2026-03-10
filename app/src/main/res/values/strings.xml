@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CueCall</string>
+    <string name="mode_reception">Reception</string>
+    <string name="mode_counter">Counter</string>
+    <string name="mode_display">Display Board</string>
+    <string name="mode_settings">Settings</string>
+    <string name="generate_token">Generate Token</string>
+    <string name="reprint_token">Reprint Last Token</string>
+    <string name="call_next">Call Next</string>
+    <string name="recall">Recall</string>
+    <string name="skip">Skip</string>
+    <string name="complete">Done</string>
+    <string name="now_serving">Now Serving</string>
+    <string name="waiting">Waiting</string>
+    <string name="no_tokens_waiting">No patients waiting</string>
+    <string name="please_wait">Please wait for your turn</string>
+    <string name="error_clinic_not_configured">Clinic not configured. Please complete setup in Settings.</string>
+    <string name="error_no_network">Cannot generate token: no network connection.</string>
+    <string name="error_no_services">No services configured. Please add services in Settings.</string>
+</resources>

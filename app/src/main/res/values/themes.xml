@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Legacy theme required by AndroidManifest.xml — actual UI is 100% Compose/Material3 -->
+    <style name="Theme.CueCall" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
