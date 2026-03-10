@@ -1,0 +1,28 @@
+CueCall/
+├── app/
+│   ├── src/main/java/com/example/cuecall/
+│   │   ├── MainActivity.kt
+│   │   ├── navigation/
+│   │   ├── ui/theme/
+│   │   ├── core/
+│   │   ├── data/
+│   │   │   ├── local/
+│   │   │   ├── remote/
+│   │   │   ├── repository/
+│   │   ├── domain/
+│   │   │   ├── model/
+│   │   │   ├── repository/
+│   │   │   ├── usecase/
+│   │   ├── feature_reception/
+│   │   ├── feature_counter/
+│   │   ├── feature_display/
+│   │   ├── feature_settings/
+│   │   ├── printer/
+│   │   └── di/
+│   ├── src/main/res/
+│   └── build.gradle.kts
+├── gradle/
+├── build.gradle.kts
+├── settings.gradle.kts
+├── README.md
+└── docs/
