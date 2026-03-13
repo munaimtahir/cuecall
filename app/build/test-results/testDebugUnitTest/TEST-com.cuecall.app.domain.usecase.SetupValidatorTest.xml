@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cuecall.app.domain.usecase.SetupValidatorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-03-11T11:11:41" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.385">
+  <properties/>
+  <testcase name="fails token generation when no active service exists" classname="com.cuecall.app.domain.usecase.SetupValidatorTest" time="0.222"/>
+  <testcase name="syncs settings clinic id from stored clinic record" classname="com.cuecall.app.domain.usecase.SetupValidatorTest" time="0.041"/>
+  <testcase name="auto creates queue day for today when setup is valid" classname="com.cuecall.app.domain.usecase.SetupValidatorTest" time="0.088"/>
+  <testcase name="fails when no clinic exists" classname="com.cuecall.app.domain.usecase.SetupValidatorTest" time="0.013"/>
+  <testcase name="fails token generation when selected service is inactive" classname="com.cuecall.app.domain.usecase.SetupValidatorTest" time="0.02"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

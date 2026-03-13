@@ -36,7 +36,7 @@ data class Counter(
     val id: String,
     val clinicId: String,
     val name: String,            // e.g. "Window 1", "Room 3"
-    val serviceIds: List<String> = emptyList(),
+    val serviceId: String? = null,
     val isActive: Boolean = true,
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = System.currentTimeMillis()

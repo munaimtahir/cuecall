@@ -11,12 +11,14 @@ import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import com.cuecall.app.data.local.AppDatabase;
 import com.cuecall.app.data.local.dao.CallEventDao;
+import com.cuecall.app.data.local.dao.ClinicDao;
 import com.cuecall.app.data.local.dao.CounterDao;
 import com.cuecall.app.data.local.dao.QueueDayDao;
 import com.cuecall.app.data.local.dao.ServiceDao;
 import com.cuecall.app.data.local.dao.TokenDao;
 import com.cuecall.app.data.remote.source.FirestoreTokenSource;
 import com.cuecall.app.data.repository.CallEventRepositoryImpl;
+import com.cuecall.app.data.repository.ClinicRepositoryImpl;
 import com.cuecall.app.data.repository.CounterRepositoryImpl;
 import com.cuecall.app.data.repository.QueueDayRepositoryImpl;
 import com.cuecall.app.data.repository.ServiceRepositoryImpl;
@@ -24,6 +26,7 @@ import com.cuecall.app.data.repository.SettingsRepositoryImpl;
 import com.cuecall.app.data.repository.TokenRepositoryImpl;
 import com.cuecall.app.data.repository.TokenSequenceRepositoryImpl;
 import com.cuecall.app.di.DatabaseModule_ProvideCallEventDaoFactory;
+import com.cuecall.app.di.DatabaseModule_ProvideClinicDaoFactory;
 import com.cuecall.app.di.DatabaseModule_ProvideCounterDaoFactory;
 import com.cuecall.app.di.DatabaseModule_ProvideDataStoreFactory;
 import com.cuecall.app.di.DatabaseModule_ProvideDatabaseFactory;
@@ -37,9 +40,9 @@ import com.cuecall.app.domain.usecase.CallNextTokenUseCase;
 import com.cuecall.app.domain.usecase.CompleteTokenUseCase;
 import com.cuecall.app.domain.usecase.GenerateTokenUseCase;
 import com.cuecall.app.domain.usecase.RecallTokenUseCase;
+import com.cuecall.app.domain.usecase.SetupValidator;
 import com.cuecall.app.domain.usecase.SkipTokenUseCase;
 import com.cuecall.app.printer.EscPosPrinterManager;
-import com.cuecall.app.printer.MockPrinterManager;
 import com.cuecall.app.printer.PrinterManager;
 import com.cuecall.app.sync.TokenSyncManager;
 import com.cuecall.app.ui.screens.counter.CounterViewModel;
@@ -50,8 +53,12 @@ import com.cuecall.app.ui.screens.history.DailyHistoryViewModel;
 import com.cuecall.app.ui.screens.history.DailyHistoryViewModel_HiltModules;
 import com.cuecall.app.ui.screens.reception.ReceptionViewModel;
 import com.cuecall.app.ui.screens.reception.ReceptionViewModel_HiltModules;
+import com.cuecall.app.ui.screens.settings.ClinicSetupViewModel;
+import com.cuecall.app.ui.screens.settings.ClinicSetupViewModel_HiltModules;
 import com.cuecall.app.ui.screens.settings.CounterManagementViewModel;
 import com.cuecall.app.ui.screens.settings.CounterManagementViewModel_HiltModules;
+import com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModel;
+import com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModel_HiltModules;
 import com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel;
 import com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel_HiltModules;
 import com.cuecall.app.ui.screens.settings.ServiceManagementViewModel;
@@ -417,7 +424,7 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
 
     @Override
     public Map<Class<?>, Boolean> getViewModelKeys() {
-      return LazyClassKeyMap.<Boolean>of(ImmutableMap.<String, Boolean>builderWithExpectedSize(7).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_CounterManagementViewModel, CounterManagementViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_counter_CounterViewModel, CounterViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_history_DailyHistoryViewModel, DailyHistoryViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_display_DisplayViewModel, DisplayViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel, PrinterSettingsViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_reception_ReceptionViewModel, ReceptionViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_ServiceManagementViewModel, ServiceManagementViewModel_HiltModules.KeyModule.provide()).build());
+      return LazyClassKeyMap.<Boolean>of(ImmutableMap.<String, Boolean>builderWithExpectedSize(9).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_ClinicSetupViewModel, ClinicSetupViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_CounterManagementViewModel, CounterManagementViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_counter_CounterViewModel, CounterViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_history_DailyHistoryViewModel, DailyHistoryViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_DeviceAssignmentViewModel, DeviceAssignmentViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_display_DisplayViewModel, DisplayViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel, PrinterSettingsViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_reception_ReceptionViewModel, ReceptionViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_ServiceManagementViewModel, ServiceManagementViewModel_HiltModules.KeyModule.provide()).build());
     }
 
     @Override
@@ -437,37 +444,47 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_cuecall_app_ui_screens_display_DisplayViewModel = "com.cuecall.app.ui.screens.display.DisplayViewModel";
+      static String com_cuecall_app_ui_screens_settings_ClinicSetupViewModel = "com.cuecall.app.ui.screens.settings.ClinicSetupViewModel";
 
       static String com_cuecall_app_ui_screens_counter_CounterViewModel = "com.cuecall.app.ui.screens.counter.CounterViewModel";
 
-      static String com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel = "com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel";
+      static String com_cuecall_app_ui_screens_history_DailyHistoryViewModel = "com.cuecall.app.ui.screens.history.DailyHistoryViewModel";
+
+      static String com_cuecall_app_ui_screens_display_DisplayViewModel = "com.cuecall.app.ui.screens.display.DisplayViewModel";
+
+      static String com_cuecall_app_ui_screens_settings_DeviceAssignmentViewModel = "com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModel";
+
+      static String com_cuecall_app_ui_screens_settings_CounterManagementViewModel = "com.cuecall.app.ui.screens.settings.CounterManagementViewModel";
 
       static String com_cuecall_app_ui_screens_settings_ServiceManagementViewModel = "com.cuecall.app.ui.screens.settings.ServiceManagementViewModel";
 
-      static String com_cuecall_app_ui_screens_history_DailyHistoryViewModel = "com.cuecall.app.ui.screens.history.DailyHistoryViewModel";
-
-      static String com_cuecall_app_ui_screens_settings_CounterManagementViewModel = "com.cuecall.app.ui.screens.settings.CounterManagementViewModel";
+      static String com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel = "com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel";
 
       static String com_cuecall_app_ui_screens_reception_ReceptionViewModel = "com.cuecall.app.ui.screens.reception.ReceptionViewModel";
 
       @KeepFieldType
-      DisplayViewModel com_cuecall_app_ui_screens_display_DisplayViewModel2;
+      ClinicSetupViewModel com_cuecall_app_ui_screens_settings_ClinicSetupViewModel2;
 
       @KeepFieldType
       CounterViewModel com_cuecall_app_ui_screens_counter_CounterViewModel2;
 
       @KeepFieldType
-      PrinterSettingsViewModel com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel2;
+      DailyHistoryViewModel com_cuecall_app_ui_screens_history_DailyHistoryViewModel2;
+
+      @KeepFieldType
+      DisplayViewModel com_cuecall_app_ui_screens_display_DisplayViewModel2;
+
+      @KeepFieldType
+      DeviceAssignmentViewModel com_cuecall_app_ui_screens_settings_DeviceAssignmentViewModel2;
+
+      @KeepFieldType
+      CounterManagementViewModel com_cuecall_app_ui_screens_settings_CounterManagementViewModel2;
 
       @KeepFieldType
       ServiceManagementViewModel com_cuecall_app_ui_screens_settings_ServiceManagementViewModel2;
 
       @KeepFieldType
-      DailyHistoryViewModel com_cuecall_app_ui_screens_history_DailyHistoryViewModel2;
-
-      @KeepFieldType
-      CounterManagementViewModel com_cuecall_app_ui_screens_settings_CounterManagementViewModel2;
+      PrinterSettingsViewModel com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel2;
 
       @KeepFieldType
       ReceptionViewModel com_cuecall_app_ui_screens_reception_ReceptionViewModel2;
@@ -481,11 +498,15 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
 
     private final ViewModelCImpl viewModelCImpl = this;
 
+    private Provider<ClinicSetupViewModel> clinicSetupViewModelProvider;
+
     private Provider<CounterManagementViewModel> counterManagementViewModelProvider;
 
     private Provider<CounterViewModel> counterViewModelProvider;
 
     private Provider<DailyHistoryViewModel> dailyHistoryViewModelProvider;
+
+    private Provider<DeviceAssignmentViewModel> deviceAssignmentViewModelProvider;
 
     private Provider<DisplayViewModel> displayViewModelProvider;
 
@@ -506,7 +527,7 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
     }
 
     private CallNextTokenUseCase callNextTokenUseCase() {
-      return new CallNextTokenUseCase(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.callEventRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get());
+      return new CallNextTokenUseCase(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.callEventRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get(), singletonCImpl.setupValidatorProvider.get());
     }
 
     private RecallTokenUseCase recallTokenUseCase() {
@@ -522,24 +543,26 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
     }
 
     private GenerateTokenUseCase generateTokenUseCase() {
-      return new GenerateTokenUseCase(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.tokenSequenceRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get(), singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.callEventRepositoryImplProvider.get());
+      return new GenerateTokenUseCase(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.tokenSequenceRepositoryImplProvider.get(), singletonCImpl.callEventRepositoryImplProvider.get(), singletonCImpl.setupValidatorProvider.get());
     }
 
     @SuppressWarnings("unchecked")
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
-      this.counterManagementViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
-      this.counterViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
-      this.dailyHistoryViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
-      this.displayViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
-      this.printerSettingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
-      this.receptionViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5);
-      this.serviceManagementViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 6);
+      this.clinicSetupViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+      this.counterManagementViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
+      this.counterViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
+      this.dailyHistoryViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
+      this.deviceAssignmentViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
+      this.displayViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5);
+      this.printerSettingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 6);
+      this.receptionViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 7);
+      this.serviceManagementViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 8);
     }
 
     @Override
     public Map<Class<?>, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(ImmutableMap.<String, javax.inject.Provider<ViewModel>>builderWithExpectedSize(7).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_CounterManagementViewModel, ((Provider) counterManagementViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_counter_CounterViewModel, ((Provider) counterViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_history_DailyHistoryViewModel, ((Provider) dailyHistoryViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_display_DisplayViewModel, ((Provider) displayViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel, ((Provider) printerSettingsViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_reception_ReceptionViewModel, ((Provider) receptionViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_ServiceManagementViewModel, ((Provider) serviceManagementViewModelProvider)).build());
+      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(ImmutableMap.<String, javax.inject.Provider<ViewModel>>builderWithExpectedSize(9).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_ClinicSetupViewModel, ((Provider) clinicSetupViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_CounterManagementViewModel, ((Provider) counterManagementViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_counter_CounterViewModel, ((Provider) counterViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_history_DailyHistoryViewModel, ((Provider) dailyHistoryViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_DeviceAssignmentViewModel, ((Provider) deviceAssignmentViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_display_DisplayViewModel, ((Provider) displayViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel, ((Provider) printerSettingsViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_reception_ReceptionViewModel, ((Provider) receptionViewModelProvider)).put(LazyClassKeyProvider.com_cuecall_app_ui_screens_settings_ServiceManagementViewModel, ((Provider) serviceManagementViewModelProvider)).build());
     }
 
     @Override
@@ -549,40 +572,50 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_cuecall_app_ui_screens_history_DailyHistoryViewModel = "com.cuecall.app.ui.screens.history.DailyHistoryViewModel";
+      static String com_cuecall_app_ui_screens_settings_ServiceManagementViewModel = "com.cuecall.app.ui.screens.settings.ServiceManagementViewModel";
 
       static String com_cuecall_app_ui_screens_settings_CounterManagementViewModel = "com.cuecall.app.ui.screens.settings.CounterManagementViewModel";
 
-      static String com_cuecall_app_ui_screens_counter_CounterViewModel = "com.cuecall.app.ui.screens.counter.CounterViewModel";
+      static String com_cuecall_app_ui_screens_settings_ClinicSetupViewModel = "com.cuecall.app.ui.screens.settings.ClinicSetupViewModel";
 
-      static String com_cuecall_app_ui_screens_reception_ReceptionViewModel = "com.cuecall.app.ui.screens.reception.ReceptionViewModel";
-
-      static String com_cuecall_app_ui_screens_display_DisplayViewModel = "com.cuecall.app.ui.screens.display.DisplayViewModel";
+      static String com_cuecall_app_ui_screens_settings_DeviceAssignmentViewModel = "com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModel";
 
       static String com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel = "com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel";
 
-      static String com_cuecall_app_ui_screens_settings_ServiceManagementViewModel = "com.cuecall.app.ui.screens.settings.ServiceManagementViewModel";
+      static String com_cuecall_app_ui_screens_history_DailyHistoryViewModel = "com.cuecall.app.ui.screens.history.DailyHistoryViewModel";
+
+      static String com_cuecall_app_ui_screens_counter_CounterViewModel = "com.cuecall.app.ui.screens.counter.CounterViewModel";
+
+      static String com_cuecall_app_ui_screens_display_DisplayViewModel = "com.cuecall.app.ui.screens.display.DisplayViewModel";
+
+      static String com_cuecall_app_ui_screens_reception_ReceptionViewModel = "com.cuecall.app.ui.screens.reception.ReceptionViewModel";
 
       @KeepFieldType
-      DailyHistoryViewModel com_cuecall_app_ui_screens_history_DailyHistoryViewModel2;
+      ServiceManagementViewModel com_cuecall_app_ui_screens_settings_ServiceManagementViewModel2;
 
       @KeepFieldType
       CounterManagementViewModel com_cuecall_app_ui_screens_settings_CounterManagementViewModel2;
 
       @KeepFieldType
-      CounterViewModel com_cuecall_app_ui_screens_counter_CounterViewModel2;
+      ClinicSetupViewModel com_cuecall_app_ui_screens_settings_ClinicSetupViewModel2;
 
       @KeepFieldType
-      ReceptionViewModel com_cuecall_app_ui_screens_reception_ReceptionViewModel2;
-
-      @KeepFieldType
-      DisplayViewModel com_cuecall_app_ui_screens_display_DisplayViewModel2;
+      DeviceAssignmentViewModel com_cuecall_app_ui_screens_settings_DeviceAssignmentViewModel2;
 
       @KeepFieldType
       PrinterSettingsViewModel com_cuecall_app_ui_screens_settings_PrinterSettingsViewModel2;
 
       @KeepFieldType
-      ServiceManagementViewModel com_cuecall_app_ui_screens_settings_ServiceManagementViewModel2;
+      DailyHistoryViewModel com_cuecall_app_ui_screens_history_DailyHistoryViewModel2;
+
+      @KeepFieldType
+      CounterViewModel com_cuecall_app_ui_screens_counter_CounterViewModel2;
+
+      @KeepFieldType
+      DisplayViewModel com_cuecall_app_ui_screens_display_DisplayViewModel2;
+
+      @KeepFieldType
+      ReceptionViewModel com_cuecall_app_ui_screens_reception_ReceptionViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -606,26 +639,32 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.cuecall.app.ui.screens.settings.CounterManagementViewModel 
-          return (T) new CounterManagementViewModel(singletonCImpl.counterRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get());
+          case 0: // com.cuecall.app.ui.screens.settings.ClinicSetupViewModel 
+          return (T) new ClinicSetupViewModel(singletonCImpl.clinicRepositoryImplProvider.get(), singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.counterRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.setupValidatorProvider.get());
 
-          case 1: // com.cuecall.app.ui.screens.counter.CounterViewModel 
-          return (T) new CounterViewModel(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), viewModelCImpl.callNextTokenUseCase(), viewModelCImpl.recallTokenUseCase(), viewModelCImpl.skipTokenUseCase(), viewModelCImpl.completeTokenUseCase());
+          case 1: // com.cuecall.app.ui.screens.settings.CounterManagementViewModel 
+          return (T) new CounterManagementViewModel(singletonCImpl.counterRepositoryImplProvider.get(), singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.setupValidatorProvider.get());
 
-          case 2: // com.cuecall.app.ui.screens.history.DailyHistoryViewModel 
+          case 2: // com.cuecall.app.ui.screens.counter.CounterViewModel 
+          return (T) new CounterViewModel(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get(), singletonCImpl.counterRepositoryImplProvider.get(), singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.setupValidatorProvider.get(), viewModelCImpl.callNextTokenUseCase(), viewModelCImpl.recallTokenUseCase(), viewModelCImpl.skipTokenUseCase(), viewModelCImpl.completeTokenUseCase());
+
+          case 3: // com.cuecall.app.ui.screens.history.DailyHistoryViewModel 
           return (T) new DailyHistoryViewModel(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.serviceRepositoryImplProvider.get());
 
-          case 3: // com.cuecall.app.ui.screens.display.DisplayViewModel 
+          case 4: // com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModel 
+          return (T) new DeviceAssignmentViewModel(singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.counterRepositoryImplProvider.get(), singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.setupValidatorProvider.get());
+
+          case 5: // com.cuecall.app.ui.screens.display.DisplayViewModel 
           return (T) new DisplayViewModel(singletonCImpl.tokenRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.tokenSyncManagerProvider.get());
 
-          case 4: // com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel 
+          case 6: // com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel 
           return (T) new PrinterSettingsViewModel(singletonCImpl.settingsRepositoryImplProvider.get(), singletonCImpl.providePrinterManagerProvider.get(), singletonCImpl.provideBluetoothAdapterProvider.get());
 
-          case 5: // com.cuecall.app.ui.screens.reception.ReceptionViewModel 
-          return (T) new ReceptionViewModel(singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get(), viewModelCImpl.generateTokenUseCase(), singletonCImpl.providePrinterManagerProvider.get());
+          case 7: // com.cuecall.app.ui.screens.reception.ReceptionViewModel 
+          return (T) new ReceptionViewModel(singletonCImpl.serviceRepositoryImplProvider.get(), viewModelCImpl.generateTokenUseCase(), singletonCImpl.providePrinterManagerProvider.get(), singletonCImpl.setupValidatorProvider.get());
 
-          case 6: // com.cuecall.app.ui.screens.settings.ServiceManagementViewModel 
-          return (T) new ServiceManagementViewModel(singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get());
+          case 8: // com.cuecall.app.ui.screens.settings.ServiceManagementViewModel 
+          return (T) new ServiceManagementViewModel(singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.setupValidatorProvider.get());
 
           default: throw new AssertionError(id);
         }
@@ -709,11 +748,19 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
 
     private Provider<AppDatabase> provideDatabaseProvider;
 
+    private Provider<ClinicRepositoryImpl> clinicRepositoryImplProvider;
+
+    private Provider<ServiceRepositoryImpl> serviceRepositoryImplProvider;
+
     private Provider<CounterRepositoryImpl> counterRepositoryImplProvider;
 
     private Provider<DataStore<Preferences>> provideDataStoreProvider;
 
     private Provider<SettingsRepositoryImpl> settingsRepositoryImplProvider;
+
+    private Provider<QueueDayRepositoryImpl> queueDayRepositoryImplProvider;
+
+    private Provider<SetupValidator> setupValidatorProvider;
 
     private Provider<FirebaseFirestore> provideFirestoreProvider;
 
@@ -721,15 +768,9 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
 
     private Provider<TokenRepositoryImpl> tokenRepositoryImplProvider;
 
-    private Provider<QueueDayRepositoryImpl> queueDayRepositoryImplProvider;
-
     private Provider<CallEventRepositoryImpl> callEventRepositoryImplProvider;
 
-    private Provider<ServiceRepositoryImpl> serviceRepositoryImplProvider;
-
     private Provider<TokenSyncManager> tokenSyncManagerProvider;
-
-    private Provider<MockPrinterManager> mockPrinterManagerProvider;
 
     private Provider<BluetoothAdapter> provideBluetoothAdapterProvider;
 
@@ -745,44 +786,49 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
 
     }
 
-    private CounterDao counterDao() {
-      return DatabaseModule_ProvideCounterDaoFactory.provideCounterDao(provideDatabaseProvider.get());
-    }
-
-    private TokenDao tokenDao() {
-      return DatabaseModule_ProvideTokenDaoFactory.provideTokenDao(provideDatabaseProvider.get());
-    }
-
-    private QueueDayDao queueDayDao() {
-      return DatabaseModule_ProvideQueueDayDaoFactory.provideQueueDayDao(provideDatabaseProvider.get());
-    }
-
-    private CallEventDao callEventDao() {
-      return DatabaseModule_ProvideCallEventDaoFactory.provideCallEventDao(provideDatabaseProvider.get());
+    private ClinicDao clinicDao() {
+      return DatabaseModule_ProvideClinicDaoFactory.provideClinicDao(provideDatabaseProvider.get());
     }
 
     private ServiceDao serviceDao() {
       return DatabaseModule_ProvideServiceDaoFactory.provideServiceDao(provideDatabaseProvider.get());
     }
 
+    private CounterDao counterDao() {
+      return DatabaseModule_ProvideCounterDaoFactory.provideCounterDao(provideDatabaseProvider.get());
+    }
+
+    private QueueDayDao queueDayDao() {
+      return DatabaseModule_ProvideQueueDayDaoFactory.provideQueueDayDao(provideDatabaseProvider.get());
+    }
+
+    private TokenDao tokenDao() {
+      return DatabaseModule_ProvideTokenDaoFactory.provideTokenDao(provideDatabaseProvider.get());
+    }
+
+    private CallEventDao callEventDao() {
+      return DatabaseModule_ProvideCallEventDaoFactory.provideCallEventDao(provideDatabaseProvider.get());
+    }
+
     @SuppressWarnings("unchecked")
     private void initialize(final ApplicationContextModule applicationContextModuleParam) {
       this.provideDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<AppDatabase>(singletonCImpl, 1));
-      this.counterRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<CounterRepositoryImpl>(singletonCImpl, 0));
-      this.provideDataStoreProvider = DoubleCheck.provider(new SwitchingProvider<DataStore<Preferences>>(singletonCImpl, 3));
-      this.settingsRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<SettingsRepositoryImpl>(singletonCImpl, 2));
-      this.provideFirestoreProvider = DoubleCheck.provider(new SwitchingProvider<FirebaseFirestore>(singletonCImpl, 6));
-      this.firestoreTokenSourceProvider = DoubleCheck.provider(new SwitchingProvider<FirestoreTokenSource>(singletonCImpl, 5));
-      this.tokenRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<TokenRepositoryImpl>(singletonCImpl, 4));
+      this.clinicRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<ClinicRepositoryImpl>(singletonCImpl, 0));
+      this.serviceRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<ServiceRepositoryImpl>(singletonCImpl, 2));
+      this.counterRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<CounterRepositoryImpl>(singletonCImpl, 3));
+      this.provideDataStoreProvider = DoubleCheck.provider(new SwitchingProvider<DataStore<Preferences>>(singletonCImpl, 5));
+      this.settingsRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<SettingsRepositoryImpl>(singletonCImpl, 4));
       this.queueDayRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<QueueDayRepositoryImpl>(singletonCImpl, 7));
-      this.callEventRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<CallEventRepositoryImpl>(singletonCImpl, 8));
-      this.serviceRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<ServiceRepositoryImpl>(singletonCImpl, 9));
-      this.tokenSyncManagerProvider = DoubleCheck.provider(new SwitchingProvider<TokenSyncManager>(singletonCImpl, 10));
-      this.mockPrinterManagerProvider = DoubleCheck.provider(new SwitchingProvider<MockPrinterManager>(singletonCImpl, 12));
-      this.provideBluetoothAdapterProvider = DoubleCheck.provider(new SwitchingProvider<BluetoothAdapter>(singletonCImpl, 14));
-      this.escPosPrinterManagerProvider = DoubleCheck.provider(new SwitchingProvider<EscPosPrinterManager>(singletonCImpl, 13));
-      this.providePrinterManagerProvider = DoubleCheck.provider(new SwitchingProvider<PrinterManager>(singletonCImpl, 11));
-      this.tokenSequenceRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<TokenSequenceRepositoryImpl>(singletonCImpl, 15));
+      this.setupValidatorProvider = DoubleCheck.provider(new SwitchingProvider<SetupValidator>(singletonCImpl, 6));
+      this.provideFirestoreProvider = DoubleCheck.provider(new SwitchingProvider<FirebaseFirestore>(singletonCImpl, 10));
+      this.firestoreTokenSourceProvider = DoubleCheck.provider(new SwitchingProvider<FirestoreTokenSource>(singletonCImpl, 9));
+      this.tokenRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<TokenRepositoryImpl>(singletonCImpl, 8));
+      this.callEventRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<CallEventRepositoryImpl>(singletonCImpl, 11));
+      this.tokenSyncManagerProvider = DoubleCheck.provider(new SwitchingProvider<TokenSyncManager>(singletonCImpl, 12));
+      this.provideBluetoothAdapterProvider = DoubleCheck.provider(new SwitchingProvider<BluetoothAdapter>(singletonCImpl, 15));
+      this.escPosPrinterManagerProvider = DoubleCheck.provider(new SwitchingProvider<EscPosPrinterManager>(singletonCImpl, 14));
+      this.providePrinterManagerProvider = DoubleCheck.provider(new SwitchingProvider<PrinterManager>(singletonCImpl, 13));
+      this.tokenSequenceRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<TokenSequenceRepositoryImpl>(singletonCImpl, 16));
     }
 
     @Override
@@ -818,52 +864,55 @@ public final class DaggerCueCallApplication_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.cuecall.app.data.repository.CounterRepositoryImpl 
-          return (T) new CounterRepositoryImpl(singletonCImpl.counterDao());
+          case 0: // com.cuecall.app.data.repository.ClinicRepositoryImpl 
+          return (T) new ClinicRepositoryImpl(singletonCImpl.clinicDao());
 
           case 1: // com.cuecall.app.data.local.AppDatabase 
           return (T) DatabaseModule_ProvideDatabaseFactory.provideDatabase(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 2: // com.cuecall.app.data.repository.SettingsRepositoryImpl 
+          case 2: // com.cuecall.app.data.repository.ServiceRepositoryImpl 
+          return (T) new ServiceRepositoryImpl(singletonCImpl.serviceDao());
+
+          case 3: // com.cuecall.app.data.repository.CounterRepositoryImpl 
+          return (T) new CounterRepositoryImpl(singletonCImpl.counterDao());
+
+          case 4: // com.cuecall.app.data.repository.SettingsRepositoryImpl 
           return (T) new SettingsRepositoryImpl(singletonCImpl.provideDataStoreProvider.get());
 
-          case 3: // androidx.datastore.core.DataStore<androidx.datastore.preferences.core.Preferences> 
+          case 5: // androidx.datastore.core.DataStore<androidx.datastore.preferences.core.Preferences> 
           return (T) DatabaseModule_ProvideDataStoreFactory.provideDataStore(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 4: // com.cuecall.app.data.repository.TokenRepositoryImpl 
-          return (T) new TokenRepositoryImpl(singletonCImpl.tokenDao(), singletonCImpl.firestoreTokenSourceProvider.get());
-
-          case 5: // com.cuecall.app.data.remote.source.FirestoreTokenSource 
-          return (T) new FirestoreTokenSource(singletonCImpl.provideFirestoreProvider.get());
-
-          case 6: // com.google.firebase.firestore.FirebaseFirestore 
-          return (T) FirestoreModule_ProvideFirestoreFactory.provideFirestore();
+          case 6: // com.cuecall.app.domain.usecase.SetupValidator 
+          return (T) new SetupValidator(singletonCImpl.clinicRepositoryImplProvider.get(), singletonCImpl.serviceRepositoryImplProvider.get(), singletonCImpl.queueDayRepositoryImplProvider.get(), singletonCImpl.settingsRepositoryImplProvider.get());
 
           case 7: // com.cuecall.app.data.repository.QueueDayRepositoryImpl 
           return (T) new QueueDayRepositoryImpl(singletonCImpl.queueDayDao());
 
-          case 8: // com.cuecall.app.data.repository.CallEventRepositoryImpl 
+          case 8: // com.cuecall.app.data.repository.TokenRepositoryImpl 
+          return (T) new TokenRepositoryImpl(singletonCImpl.tokenDao(), singletonCImpl.firestoreTokenSourceProvider.get());
+
+          case 9: // com.cuecall.app.data.remote.source.FirestoreTokenSource 
+          return (T) new FirestoreTokenSource(singletonCImpl.provideFirestoreProvider.get());
+
+          case 10: // com.google.firebase.firestore.FirebaseFirestore 
+          return (T) FirestoreModule_ProvideFirestoreFactory.provideFirestore();
+
+          case 11: // com.cuecall.app.data.repository.CallEventRepositoryImpl 
           return (T) new CallEventRepositoryImpl(singletonCImpl.callEventDao());
 
-          case 9: // com.cuecall.app.data.repository.ServiceRepositoryImpl 
-          return (T) new ServiceRepositoryImpl(singletonCImpl.serviceDao());
-
-          case 10: // com.cuecall.app.sync.TokenSyncManager 
+          case 12: // com.cuecall.app.sync.TokenSyncManager 
           return (T) new TokenSyncManager(singletonCImpl.firestoreTokenSourceProvider.get(), singletonCImpl.tokenDao());
 
-          case 11: // com.cuecall.app.printer.PrinterManager 
-          return (T) PrinterModule_ProvidePrinterManagerFactory.providePrinterManager(singletonCImpl.mockPrinterManagerProvider.get(), singletonCImpl.escPosPrinterManagerProvider.get());
+          case 13: // com.cuecall.app.printer.PrinterManager 
+          return (T) PrinterModule_ProvidePrinterManagerFactory.providePrinterManager(singletonCImpl.escPosPrinterManagerProvider.get());
 
-          case 12: // com.cuecall.app.printer.MockPrinterManager 
-          return (T) new MockPrinterManager();
-
-          case 13: // com.cuecall.app.printer.EscPosPrinterManager 
+          case 14: // com.cuecall.app.printer.EscPosPrinterManager 
           return (T) new EscPosPrinterManager(singletonCImpl.provideBluetoothAdapterProvider.get());
 
-          case 14: // android.bluetooth.BluetoothAdapter 
+          case 15: // android.bluetooth.BluetoothAdapter 
           return (T) PrinterModule.INSTANCE.provideBluetoothAdapter(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 15: // com.cuecall.app.data.repository.TokenSequenceRepositoryImpl 
+          case 16: // com.cuecall.app.data.repository.TokenSequenceRepositoryImpl 
           return (T) new TokenSequenceRepositoryImpl(singletonCImpl.firestoreTokenSourceProvider.get());
 
           default: throw new AssertionError(id);

@@ -1,8 +1,8 @@
 package com.cuecall.app.ui.screens.reception;
 
 import com.cuecall.app.domain.repository.ServiceRepository;
-import com.cuecall.app.domain.repository.SettingsRepository;
 import com.cuecall.app.domain.usecase.GenerateTokenUseCase;
+import com.cuecall.app.domain.usecase.SetupValidator;
 import com.cuecall.app.printer.PrinterManager;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
@@ -28,38 +28,38 @@ import javax.inject.Provider;
 public final class ReceptionViewModel_Factory implements Factory<ReceptionViewModel> {
   private final Provider<ServiceRepository> serviceRepositoryProvider;
 
-  private final Provider<SettingsRepository> settingsRepositoryProvider;
-
   private final Provider<GenerateTokenUseCase> generateTokenUseCaseProvider;
 
   private final Provider<PrinterManager> printerManagerProvider;
 
+  private final Provider<SetupValidator> setupValidatorProvider;
+
   public ReceptionViewModel_Factory(Provider<ServiceRepository> serviceRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider,
       Provider<GenerateTokenUseCase> generateTokenUseCaseProvider,
-      Provider<PrinterManager> printerManagerProvider) {
+      Provider<PrinterManager> printerManagerProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
     this.serviceRepositoryProvider = serviceRepositoryProvider;
-    this.settingsRepositoryProvider = settingsRepositoryProvider;
     this.generateTokenUseCaseProvider = generateTokenUseCaseProvider;
     this.printerManagerProvider = printerManagerProvider;
+    this.setupValidatorProvider = setupValidatorProvider;
   }
 
   @Override
   public ReceptionViewModel get() {
-    return newInstance(serviceRepositoryProvider.get(), settingsRepositoryProvider.get(), generateTokenUseCaseProvider.get(), printerManagerProvider.get());
+    return newInstance(serviceRepositoryProvider.get(), generateTokenUseCaseProvider.get(), printerManagerProvider.get(), setupValidatorProvider.get());
   }
 
   public static ReceptionViewModel_Factory create(
       Provider<ServiceRepository> serviceRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider,
       Provider<GenerateTokenUseCase> generateTokenUseCaseProvider,
-      Provider<PrinterManager> printerManagerProvider) {
-    return new ReceptionViewModel_Factory(serviceRepositoryProvider, settingsRepositoryProvider, generateTokenUseCaseProvider, printerManagerProvider);
+      Provider<PrinterManager> printerManagerProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
+    return new ReceptionViewModel_Factory(serviceRepositoryProvider, generateTokenUseCaseProvider, printerManagerProvider, setupValidatorProvider);
   }
 
   public static ReceptionViewModel newInstance(ServiceRepository serviceRepository,
-      SettingsRepository settingsRepository, GenerateTokenUseCase generateTokenUseCase,
-      PrinterManager printerManager) {
-    return new ReceptionViewModel(serviceRepository, settingsRepository, generateTokenUseCase, printerManager);
+      GenerateTokenUseCase generateTokenUseCase, PrinterManager printerManager,
+      SetupValidator setupValidator) {
+    return new ReceptionViewModel(serviceRepository, generateTokenUseCase, printerManager, setupValidator);
   }
 }

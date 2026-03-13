@@ -12,6 +12,9 @@ interface ClinicDao {
     @Query("SELECT * FROM clinics WHERE id = :clinicId LIMIT 1")
     fun observeClinic(clinicId: String): Flow<ClinicEntity?>
 
+    @Query("SELECT * FROM clinics ORDER BY updatedAt DESC LIMIT 1")
+    suspend fun getAnyClinic(): ClinicEntity?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertClinic(clinic: ClinicEntity)
 }
@@ -35,6 +38,9 @@ interface ServiceDao {
 
     @Query("UPDATE services SET isActive = :isActive, updatedAt = :updatedAt WHERE id = :serviceId")
     suspend fun setActive(serviceId: String, isActive: Boolean, updatedAt: Long = System.currentTimeMillis())
+
+    @Query("UPDATE services SET clinicId = :clinicId WHERE clinicId = ''")
+    suspend fun assignBlankClinicId(clinicId: String)
 }
 
 @Dao
@@ -45,11 +51,17 @@ interface CounterDao {
     @Query("SELECT * FROM counters WHERE id = :counterId LIMIT 1")
     suspend fun getCounter(counterId: String): CounterEntity?
 
+    @Query("SELECT * FROM counters WHERE clinicId = :clinicId ORDER BY name ASC")
+    suspend fun getAllCounters(clinicId: String): List<CounterEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertCounter(counter: CounterEntity)
 
     @Query("DELETE FROM counters WHERE id = :counterId")
     suspend fun deleteCounter(counterId: String)
+
+    @Query("UPDATE counters SET clinicId = :clinicId WHERE clinicId = ''")
+    suspend fun assignBlankClinicId(clinicId: String)
 }
 
 @Dao

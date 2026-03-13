@@ -62,6 +62,25 @@ fun CounterScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+            if (uiState.serviceName.isNotBlank() || uiState.counterName.isNotBlank()) {
+                Surface(
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    shape = MaterialTheme.shapes.medium
+                ) {
+                    Column(modifier = Modifier.fillMaxWidth().padding(12.dp)) {
+                        if (uiState.counterName.isNotBlank()) {
+                            Text("Counter: ${uiState.counterName}", style = MaterialTheme.typography.titleMedium)
+                        }
+                        if (uiState.serviceName.isNotBlank()) {
+                            Text(
+                                "Service: ${uiState.serviceName}",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+            }
             // Currently called token
             CurrentTokenCard(
                 token = uiState.calledToken,

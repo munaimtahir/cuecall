@@ -22,6 +22,9 @@ class ClinicRepositoryImpl @Inject constructor(
 
     override suspend fun getClinic(clinicId: String): Clinic? =
         clinicDao.getClinic(clinicId)?.toDomain()
+
+    override suspend fun getAnyClinic(): Clinic? =
+        clinicDao.getAnyClinic()?.toDomain()
 }
 
 @Singleton
@@ -46,6 +49,9 @@ class ServiceRepositoryImpl @Inject constructor(
 
     override suspend fun setServiceActive(serviceId: String, isActive: Boolean) =
         serviceDao.setActive(serviceId, isActive)
+
+    override suspend fun assignBlankClinicId(clinicId: String) =
+        serviceDao.assignBlankClinicId(clinicId)
 }
 
 @Singleton
@@ -59,11 +65,17 @@ class CounterRepositoryImpl @Inject constructor(
     override suspend fun getCounter(counterId: String): Counter? =
         counterDao.getCounter(counterId)?.toDomain()
 
+    override suspend fun getAllCounters(clinicId: String): List<Counter> =
+        counterDao.getAllCounters(clinicId).map { it.toDomain() }
+
     override suspend fun saveCounter(counter: Counter) =
         counterDao.upsertCounter(counter.toEntity())
 
     override suspend fun deleteCounter(counterId: String) =
         counterDao.deleteCounter(counterId)
+
+    override suspend fun assignBlankClinicId(clinicId: String) =
+        counterDao.assignBlankClinicId(clinicId)
 }
 
 @Singleton

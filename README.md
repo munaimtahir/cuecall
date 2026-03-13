@@ -80,9 +80,17 @@ com.cuecall.app/
 # Unit tests
 ./gradlew :app:test
 
+# Compose/instrumentation tests on a connected emulator or device
+./gradlew :app:connectedDebugAndroidTest
+
+# Full Android suite on a Gradle-managed emulator
+./gradlew :app:pixel2Api30DebugAndroidTest
+
 # Specific test class
 ./gradlew :app:testDebugUnitTest --tests "com.cuecall.app.domain.usecase.GenerateTokenUseCaseTest"
 ```
+
+Instrumentation coverage currently targets launch, mode selection, top-level navigation, and display-mode back handling. Hardware-specific printer flows and multi-device Firebase sync remain in the manual smoke checklist.
 
 ---
 
@@ -155,4 +163,3 @@ app/src/main/java/com/cuecall/app/printer/EscPosPrinterManager.kt
 - 07_TESTS.md — QA test intent
 - 08_API_CONTRACT_NOTES.md — API notes
 - 09_REPO_SCAFFOLD.txt — initial scaffold reference
-

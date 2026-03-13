@@ -1,7 +1,7 @@
 package com.cuecall.app.ui.screens.settings;
 
 import com.cuecall.app.domain.repository.ServiceRepository;
-import com.cuecall.app.domain.repository.SettingsRepository;
+import com.cuecall.app.domain.usecase.SetupValidator;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
@@ -26,27 +26,27 @@ import javax.inject.Provider;
 public final class ServiceManagementViewModel_Factory implements Factory<ServiceManagementViewModel> {
   private final Provider<ServiceRepository> serviceRepositoryProvider;
 
-  private final Provider<SettingsRepository> settingsRepositoryProvider;
+  private final Provider<SetupValidator> setupValidatorProvider;
 
   public ServiceManagementViewModel_Factory(Provider<ServiceRepository> serviceRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider) {
+      Provider<SetupValidator> setupValidatorProvider) {
     this.serviceRepositoryProvider = serviceRepositoryProvider;
-    this.settingsRepositoryProvider = settingsRepositoryProvider;
+    this.setupValidatorProvider = setupValidatorProvider;
   }
 
   @Override
   public ServiceManagementViewModel get() {
-    return newInstance(serviceRepositoryProvider.get(), settingsRepositoryProvider.get());
+    return newInstance(serviceRepositoryProvider.get(), setupValidatorProvider.get());
   }
 
   public static ServiceManagementViewModel_Factory create(
       Provider<ServiceRepository> serviceRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider) {
-    return new ServiceManagementViewModel_Factory(serviceRepositoryProvider, settingsRepositoryProvider);
+      Provider<SetupValidator> setupValidatorProvider) {
+    return new ServiceManagementViewModel_Factory(serviceRepositoryProvider, setupValidatorProvider);
   }
 
   public static ServiceManagementViewModel newInstance(ServiceRepository serviceRepository,
-      SettingsRepository settingsRepository) {
-    return new ServiceManagementViewModel(serviceRepository, settingsRepository);
+      SetupValidator setupValidator) {
+    return new ServiceManagementViewModel(serviceRepository, setupValidator);
   }
 }

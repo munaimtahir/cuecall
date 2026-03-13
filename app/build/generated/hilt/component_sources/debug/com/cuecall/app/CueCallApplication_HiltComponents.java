@@ -8,7 +8,9 @@ import com.cuecall.app.ui.screens.counter.CounterViewModel_HiltModules;
 import com.cuecall.app.ui.screens.display.DisplayViewModel_HiltModules;
 import com.cuecall.app.ui.screens.history.DailyHistoryViewModel_HiltModules;
 import com.cuecall.app.ui.screens.reception.ReceptionViewModel_HiltModules;
+import com.cuecall.app.ui.screens.settings.ClinicSetupViewModel_HiltModules;
 import com.cuecall.app.ui.screens.settings.CounterManagementViewModel_HiltModules;
+import com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModel_HiltModules;
 import com.cuecall.app.ui.screens.settings.PrinterSettingsViewModel_HiltModules;
 import com.cuecall.app.ui.screens.settings.ServiceManagementViewModel_HiltModules;
 import dagger.Binds;
@@ -165,11 +167,13 @@ public final class CueCallApplication_HiltComponents {
 
   @Subcomponent(
       modules = {
+          ClinicSetupViewModel_HiltModules.KeyModule.class,
           CounterManagementViewModel_HiltModules.KeyModule.class,
           CounterViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class,
           DailyHistoryViewModel_HiltModules.KeyModule.class,
+          DeviceAssignmentViewModel_HiltModules.KeyModule.class,
           DisplayViewModel_HiltModules.KeyModule.class,
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           HiltWrapper_SavedStateHandleModule.class,
@@ -211,9 +215,11 @@ public final class CueCallApplication_HiltComponents {
 
   @Subcomponent(
       modules = {
+          ClinicSetupViewModel_HiltModules.BindsModule.class,
           CounterManagementViewModel_HiltModules.BindsModule.class,
           CounterViewModel_HiltModules.BindsModule.class,
           DailyHistoryViewModel_HiltModules.BindsModule.class,
+          DeviceAssignmentViewModel_HiltModules.BindsModule.class,
           DisplayViewModel_HiltModules.BindsModule.class,
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
           PrinterSettingsViewModel_HiltModules.BindsModule.class,

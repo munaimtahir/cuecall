@@ -37,13 +37,15 @@ public final class CounterDao_Impl implements CounterDao {
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteCounter;
 
+  private final SharedSQLiteStatement __preparedStmtOfAssignBlankClinicId;
+
   public CounterDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfCounterEntity = new EntityInsertionAdapter<CounterEntity>(__db) {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `counters` (`id`,`clinicId`,`name`,`serviceIdsJson`,`isActive`,`createdAt`,`updatedAt`) VALUES (?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `counters` (`id`,`clinicId`,`name`,`serviceId`,`isActive`,`createdAt`,`updatedAt`) VALUES (?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -52,7 +54,11 @@ public final class CounterDao_Impl implements CounterDao {
         statement.bindString(1, entity.getId());
         statement.bindString(2, entity.getClinicId());
         statement.bindString(3, entity.getName());
-        statement.bindString(4, entity.getServiceIdsJson());
+        if (entity.getServiceId() == null) {
+          statement.bindNull(4);
+        } else {
+          statement.bindString(4, entity.getServiceId());
+        }
         final int _tmp = entity.isActive() ? 1 : 0;
         statement.bindLong(5, _tmp);
         statement.bindLong(6, entity.getCreatedAt());
@@ -64,6 +70,14 @@ public final class CounterDao_Impl implements CounterDao {
       @NonNull
       public String createQuery() {
         final String _query = "DELETE FROM counters WHERE id = ?";
+        return _query;
+      }
+    };
+    this.__preparedStmtOfAssignBlankClinicId = new SharedSQLiteStatement(__db) {
+      @Override
+      @NonNull
+      public String createQuery() {
+        final String _query = "UPDATE counters SET clinicId = ? WHERE clinicId = ''";
         return _query;
       }
     };
@@ -115,6 +129,32 @@ public final class CounterDao_Impl implements CounterDao {
   }
 
   @Override
+  public Object assignBlankClinicId(final String clinicId,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfAssignBlankClinicId.acquire();
+        int _argIndex = 1;
+        _stmt.bindString(_argIndex, clinicId);
+        try {
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
+        } finally {
+          __preparedStmtOfAssignBlankClinicId.release(_stmt);
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
   public Flow<List<CounterEntity>> observeActiveCounters(final String clinicId) {
     final String _sql = "SELECT * FROM counters WHERE clinicId = ? AND isActive = 1 ORDER BY name ASC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
@@ -129,7 +169,7 @@ public final class CounterDao_Impl implements CounterDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfClinicId = CursorUtil.getColumnIndexOrThrow(_cursor, "clinicId");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-          final int _cursorIndexOfServiceIdsJson = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceIdsJson");
+          final int _cursorIndexOfServiceId = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceId");
           final int _cursorIndexOfIsActive = CursorUtil.getColumnIndexOrThrow(_cursor, "isActive");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
@@ -142,8 +182,12 @@ public final class CounterDao_Impl implements CounterDao {
             _tmpClinicId = _cursor.getString(_cursorIndexOfClinicId);
             final String _tmpName;
             _tmpName = _cursor.getString(_cursorIndexOfName);
-            final String _tmpServiceIdsJson;
-            _tmpServiceIdsJson = _cursor.getString(_cursorIndexOfServiceIdsJson);
+            final String _tmpServiceId;
+            if (_cursor.isNull(_cursorIndexOfServiceId)) {
+              _tmpServiceId = null;
+            } else {
+              _tmpServiceId = _cursor.getString(_cursorIndexOfServiceId);
+            }
             final boolean _tmpIsActive;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsActive);
@@ -152,7 +196,7 @@ public final class CounterDao_Impl implements CounterDao {
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _item = new CounterEntity(_tmpId,_tmpClinicId,_tmpName,_tmpServiceIdsJson,_tmpIsActive,_tmpCreatedAt,_tmpUpdatedAt);
+            _item = new CounterEntity(_tmpId,_tmpClinicId,_tmpName,_tmpServiceId,_tmpIsActive,_tmpCreatedAt,_tmpUpdatedAt);
             _result.add(_item);
           }
           return _result;
@@ -185,7 +229,7 @@ public final class CounterDao_Impl implements CounterDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfClinicId = CursorUtil.getColumnIndexOrThrow(_cursor, "clinicId");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-          final int _cursorIndexOfServiceIdsJson = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceIdsJson");
+          final int _cursorIndexOfServiceId = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceId");
           final int _cursorIndexOfIsActive = CursorUtil.getColumnIndexOrThrow(_cursor, "isActive");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
@@ -197,8 +241,12 @@ public final class CounterDao_Impl implements CounterDao {
             _tmpClinicId = _cursor.getString(_cursorIndexOfClinicId);
             final String _tmpName;
             _tmpName = _cursor.getString(_cursorIndexOfName);
-            final String _tmpServiceIdsJson;
-            _tmpServiceIdsJson = _cursor.getString(_cursorIndexOfServiceIdsJson);
+            final String _tmpServiceId;
+            if (_cursor.isNull(_cursorIndexOfServiceId)) {
+              _tmpServiceId = null;
+            } else {
+              _tmpServiceId = _cursor.getString(_cursorIndexOfServiceId);
+            }
             final boolean _tmpIsActive;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsActive);
@@ -207,9 +255,65 @@ public final class CounterDao_Impl implements CounterDao {
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _result = new CounterEntity(_tmpId,_tmpClinicId,_tmpName,_tmpServiceIdsJson,_tmpIsActive,_tmpCreatedAt,_tmpUpdatedAt);
+            _result = new CounterEntity(_tmpId,_tmpClinicId,_tmpName,_tmpServiceId,_tmpIsActive,_tmpCreatedAt,_tmpUpdatedAt);
           } else {
             _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getAllCounters(final String clinicId,
+      final Continuation<? super List<CounterEntity>> $completion) {
+    final String _sql = "SELECT * FROM counters WHERE clinicId = ? ORDER BY name ASC";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindString(_argIndex, clinicId);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<CounterEntity>>() {
+      @Override
+      @NonNull
+      public List<CounterEntity> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfClinicId = CursorUtil.getColumnIndexOrThrow(_cursor, "clinicId");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfServiceId = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceId");
+          final int _cursorIndexOfIsActive = CursorUtil.getColumnIndexOrThrow(_cursor, "isActive");
+          final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
+          final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
+          final List<CounterEntity> _result = new ArrayList<CounterEntity>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final CounterEntity _item;
+            final String _tmpId;
+            _tmpId = _cursor.getString(_cursorIndexOfId);
+            final String _tmpClinicId;
+            _tmpClinicId = _cursor.getString(_cursorIndexOfClinicId);
+            final String _tmpName;
+            _tmpName = _cursor.getString(_cursorIndexOfName);
+            final String _tmpServiceId;
+            if (_cursor.isNull(_cursorIndexOfServiceId)) {
+              _tmpServiceId = null;
+            } else {
+              _tmpServiceId = _cursor.getString(_cursorIndexOfServiceId);
+            }
+            final boolean _tmpIsActive;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfIsActive);
+            _tmpIsActive = _tmp != 0;
+            final long _tmpCreatedAt;
+            _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
+            final long _tmpUpdatedAt;
+            _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
+            _item = new CounterEntity(_tmpId,_tmpClinicId,_tmpName,_tmpServiceId,_tmpIsActive,_tmpCreatedAt,_tmpUpdatedAt);
+            _result.add(_item);
           }
           return _result;
         } finally {

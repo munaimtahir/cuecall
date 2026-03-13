@@ -1,0 +1,15 @@
+! BMockPrinter DEBUG: Connected to mock printer at AA:BB:CC:DD:EE:FF
+!#BMockPrinter DEBUG: Connected to mock printer at AA:BB:CC:DD:EE:FF
+!#2MockPrinter DEBUG: Disconnected from mock printer
+!$BMockPrinter DEBUG: Connected to mock printer at AA:BB:CC:DD:EE:FF
+!$MockPrinter INFO: 
+!$!--------------------------------
+!$  Test Clinic
+!$!--------------------------------
+!$  Token: G-005
+!$  Service: General OPD
+!$  Time: 11:11 11-03-2026
+!$!--------------------------------
+!$  Please wait for your turn
+!$!--------------------------------
+!$

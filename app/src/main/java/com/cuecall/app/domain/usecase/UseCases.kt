@@ -19,31 +19,23 @@ import javax.inject.Inject
 class GenerateTokenUseCase @Inject constructor(
     private val tokenRepository: TokenRepository,
     private val tokenSequenceRepository: TokenSequenceRepository,
-    private val queueDayRepository: QueueDayRepository,
-    private val serviceRepository: ServiceRepository,
-    private val settingsRepository: SettingsRepository,
-    private val callEventRepository: CallEventRepository
+    private val callEventRepository: CallEventRepository,
+    private val setupValidator: SetupValidator
 ) {
     suspend operator fun invoke(serviceId: String): Result<Token> = runCatching {
-        val settings = settingsRepository.getSettings()
-        val clinicId = settings.clinicId.ifBlank { error("Clinic not configured. Please complete setup.") }
-        val deviceId = settings.deviceId
+        val context = setupValidator.validateTokenGeneration(serviceId)
+        val clinicId = context.clinic.id
+        val deviceId = context.settings.deviceId
 
-        val service = serviceRepository.getService(serviceId)
-            ?: error("Service not found: $serviceId")
-
-        val businessDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
-        val queueDay = queueDayRepository.getOrCreateQueueDay(clinicId, businessDate)
-
-        val tokenNumber = tokenSequenceRepository.getNextTokenNumber(clinicId, queueDay.id, serviceId)
-        val displayNumber = formatDisplayNumber(service.tokenPrefix, tokenNumber)
+        val tokenNumber = tokenSequenceRepository.getNextTokenNumber(clinicId, context.queueDay.id, serviceId)
+        val displayNumber = formatDisplayNumber(context.service.tokenPrefix, tokenNumber)
 
         val token = Token(
             id = UUID.randomUUID().toString(),
             clinicId = clinicId,
-            queueDayId = queueDay.id,
+            queueDayId = context.queueDay.id,
             serviceId = serviceId,
-            tokenPrefix = service.tokenPrefix,
+            tokenPrefix = context.service.tokenPrefix,
             tokenNumber = tokenNumber,
             displayNumber = displayNumber,
             status = TokenStatus.WAITING,
@@ -61,7 +53,7 @@ class GenerateTokenUseCase @Inject constructor(
                 serviceId = serviceId,
                 createdAt = System.currentTimeMillis(),
                 createdByDeviceId = deviceId,
-                metadata = mapOf("queueDayId" to queueDay.id)
+                metadata = mapOf("queueDayId" to context.queueDay.id)
             )
         )
         token
@@ -81,11 +73,13 @@ class CallNextTokenUseCase @Inject constructor(
     private val tokenRepository: TokenRepository,
     private val settingsRepository: SettingsRepository,
     private val callEventRepository: CallEventRepository,
-    private val queueDayRepository: QueueDayRepository
+    private val queueDayRepository: QueueDayRepository,
+    private val setupValidator: SetupValidator
 ) {
     suspend operator fun invoke(serviceId: String): Result<Token?> = runCatching {
+        val setup = setupValidator.requireClinicSetup()
         val settings = settingsRepository.getSettings()
-        val clinicId = settings.clinicId.ifBlank { error("Clinic not configured.") }
+        val clinicId = setup.clinic.id
         val deviceId = settings.deviceId
 
         val businessDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
@@ -211,11 +205,12 @@ class ResetQueueDayUseCase @Inject constructor(
     private val queueDayRepository: QueueDayRepository,
     private val tokenSequenceRepository: TokenSequenceRepository,
     private val serviceRepository: ServiceRepository,
-    private val settingsRepository: SettingsRepository
+    private val settingsRepository: SettingsRepository,
+    private val setupValidator: SetupValidator
 ) {
     suspend operator fun invoke(): Result<QueueDay> = runCatching {
+        val clinicId = setupValidator.requireClinicSetup().clinic.id
         val settings = settingsRepository.getSettings()
-        val clinicId = settings.clinicId.ifBlank { error("Clinic not configured.") }
         val businessDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
 
         // Create new queue day with a timestamp suffix to force a new day even if same calendar date

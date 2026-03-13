@@ -1,11 +1,13 @@
 package com.cuecall.app.ui.screens.counter;
 
+import com.cuecall.app.domain.repository.CounterRepository;
 import com.cuecall.app.domain.repository.QueueDayRepository;
-import com.cuecall.app.domain.repository.SettingsRepository;
+import com.cuecall.app.domain.repository.ServiceRepository;
 import com.cuecall.app.domain.repository.TokenRepository;
 import com.cuecall.app.domain.usecase.CallNextTokenUseCase;
 import com.cuecall.app.domain.usecase.CompleteTokenUseCase;
 import com.cuecall.app.domain.usecase.RecallTokenUseCase;
+import com.cuecall.app.domain.usecase.SetupValidator;
 import com.cuecall.app.domain.usecase.SkipTokenUseCase;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
@@ -33,7 +35,11 @@ public final class CounterViewModel_Factory implements Factory<CounterViewModel>
 
   private final Provider<QueueDayRepository> queueDayRepositoryProvider;
 
-  private final Provider<SettingsRepository> settingsRepositoryProvider;
+  private final Provider<CounterRepository> counterRepositoryProvider;
+
+  private final Provider<ServiceRepository> serviceRepositoryProvider;
+
+  private final Provider<SetupValidator> setupValidatorProvider;
 
   private final Provider<CallNextTokenUseCase> callNextTokenUseCaseProvider;
 
@@ -45,14 +51,18 @@ public final class CounterViewModel_Factory implements Factory<CounterViewModel>
 
   public CounterViewModel_Factory(Provider<TokenRepository> tokenRepositoryProvider,
       Provider<QueueDayRepository> queueDayRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider,
+      Provider<CounterRepository> counterRepositoryProvider,
+      Provider<ServiceRepository> serviceRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider,
       Provider<CallNextTokenUseCase> callNextTokenUseCaseProvider,
       Provider<RecallTokenUseCase> recallTokenUseCaseProvider,
       Provider<SkipTokenUseCase> skipTokenUseCaseProvider,
       Provider<CompleteTokenUseCase> completeTokenUseCaseProvider) {
     this.tokenRepositoryProvider = tokenRepositoryProvider;
     this.queueDayRepositoryProvider = queueDayRepositoryProvider;
-    this.settingsRepositoryProvider = settingsRepositoryProvider;
+    this.counterRepositoryProvider = counterRepositoryProvider;
+    this.serviceRepositoryProvider = serviceRepositoryProvider;
+    this.setupValidatorProvider = setupValidatorProvider;
     this.callNextTokenUseCaseProvider = callNextTokenUseCaseProvider;
     this.recallTokenUseCaseProvider = recallTokenUseCaseProvider;
     this.skipTokenUseCaseProvider = skipTokenUseCaseProvider;
@@ -61,23 +71,26 @@ public final class CounterViewModel_Factory implements Factory<CounterViewModel>
 
   @Override
   public CounterViewModel get() {
-    return newInstance(tokenRepositoryProvider.get(), queueDayRepositoryProvider.get(), settingsRepositoryProvider.get(), callNextTokenUseCaseProvider.get(), recallTokenUseCaseProvider.get(), skipTokenUseCaseProvider.get(), completeTokenUseCaseProvider.get());
+    return newInstance(tokenRepositoryProvider.get(), queueDayRepositoryProvider.get(), counterRepositoryProvider.get(), serviceRepositoryProvider.get(), setupValidatorProvider.get(), callNextTokenUseCaseProvider.get(), recallTokenUseCaseProvider.get(), skipTokenUseCaseProvider.get(), completeTokenUseCaseProvider.get());
   }
 
   public static CounterViewModel_Factory create(Provider<TokenRepository> tokenRepositoryProvider,
       Provider<QueueDayRepository> queueDayRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider,
+      Provider<CounterRepository> counterRepositoryProvider,
+      Provider<ServiceRepository> serviceRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider,
       Provider<CallNextTokenUseCase> callNextTokenUseCaseProvider,
       Provider<RecallTokenUseCase> recallTokenUseCaseProvider,
       Provider<SkipTokenUseCase> skipTokenUseCaseProvider,
       Provider<CompleteTokenUseCase> completeTokenUseCaseProvider) {
-    return new CounterViewModel_Factory(tokenRepositoryProvider, queueDayRepositoryProvider, settingsRepositoryProvider, callNextTokenUseCaseProvider, recallTokenUseCaseProvider, skipTokenUseCaseProvider, completeTokenUseCaseProvider);
+    return new CounterViewModel_Factory(tokenRepositoryProvider, queueDayRepositoryProvider, counterRepositoryProvider, serviceRepositoryProvider, setupValidatorProvider, callNextTokenUseCaseProvider, recallTokenUseCaseProvider, skipTokenUseCaseProvider, completeTokenUseCaseProvider);
   }
 
   public static CounterViewModel newInstance(TokenRepository tokenRepository,
-      QueueDayRepository queueDayRepository, SettingsRepository settingsRepository,
+      QueueDayRepository queueDayRepository, CounterRepository counterRepository,
+      ServiceRepository serviceRepository, SetupValidator setupValidator,
       CallNextTokenUseCase callNextTokenUseCase, RecallTokenUseCase recallTokenUseCase,
       SkipTokenUseCase skipTokenUseCase, CompleteTokenUseCase completeTokenUseCase) {
-    return new CounterViewModel(tokenRepository, queueDayRepository, settingsRepository, callNextTokenUseCase, recallTokenUseCase, skipTokenUseCase, completeTokenUseCase);
+    return new CounterViewModel(tokenRepository, queueDayRepository, counterRepository, serviceRepository, setupValidator, callNextTokenUseCase, recallTokenUseCase, skipTokenUseCase, completeTokenUseCase);
   }
 }

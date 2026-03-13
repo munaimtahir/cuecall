@@ -1,7 +1,8 @@
 package com.cuecall.app.ui.screens.settings;
 
 import com.cuecall.app.domain.repository.CounterRepository;
-import com.cuecall.app.domain.repository.SettingsRepository;
+import com.cuecall.app.domain.repository.ServiceRepository;
+import com.cuecall.app.domain.usecase.SetupValidator;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
@@ -26,27 +27,32 @@ import javax.inject.Provider;
 public final class CounterManagementViewModel_Factory implements Factory<CounterManagementViewModel> {
   private final Provider<CounterRepository> counterRepositoryProvider;
 
-  private final Provider<SettingsRepository> settingsRepositoryProvider;
+  private final Provider<ServiceRepository> serviceRepositoryProvider;
+
+  private final Provider<SetupValidator> setupValidatorProvider;
 
   public CounterManagementViewModel_Factory(Provider<CounterRepository> counterRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider) {
+      Provider<ServiceRepository> serviceRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
     this.counterRepositoryProvider = counterRepositoryProvider;
-    this.settingsRepositoryProvider = settingsRepositoryProvider;
+    this.serviceRepositoryProvider = serviceRepositoryProvider;
+    this.setupValidatorProvider = setupValidatorProvider;
   }
 
   @Override
   public CounterManagementViewModel get() {
-    return newInstance(counterRepositoryProvider.get(), settingsRepositoryProvider.get());
+    return newInstance(counterRepositoryProvider.get(), serviceRepositoryProvider.get(), setupValidatorProvider.get());
   }
 
   public static CounterManagementViewModel_Factory create(
       Provider<CounterRepository> counterRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider) {
-    return new CounterManagementViewModel_Factory(counterRepositoryProvider, settingsRepositoryProvider);
+      Provider<ServiceRepository> serviceRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
+    return new CounterManagementViewModel_Factory(counterRepositoryProvider, serviceRepositoryProvider, setupValidatorProvider);
   }
 
   public static CounterManagementViewModel newInstance(CounterRepository counterRepository,
-      SettingsRepository settingsRepository) {
-    return new CounterManagementViewModel(counterRepository, settingsRepository);
+      ServiceRepository serviceRepository, SetupValidator setupValidator) {
+    return new CounterManagementViewModel(counterRepository, serviceRepository, setupValidator);
   }
 }

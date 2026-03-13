@@ -1,5 +1,10 @@
 package com.cuecall.app.ui.screens.settings
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -10,6 +15,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cuecall.app.ui.components.*
@@ -22,6 +28,25 @@ fun PrinterSettingsScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val requiresBluetoothConnectPermission = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+    val hasBluetoothConnectPermission = !requiresBluetoothConnectPermission ||
+        ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.BLUETOOTH_CONNECT
+        ) == PackageManager.PERMISSION_GRANTED
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        viewModel.refreshPairedDevices(granted || !requiresBluetoothConnectPermission)
+    }
+
+    LaunchedEffect(hasBluetoothConnectPermission) {
+        viewModel.refreshPairedDevices(hasBluetoothConnectPermission)
+        if (requiresBluetoothConnectPermission && !hasBluetoothConnectPermission) {
+            permissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT)
+        }
+    }
 
     LaunchedEffect(uiState.error) {
         uiState.error?.let { snackbarHostState.showSnackbar(it); viewModel.clearError() }
@@ -54,6 +79,38 @@ fun PrinterSettingsScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+            if (requiresBluetoothConnectPermission && !uiState.connectPermissionGranted) {
+                Card(modifier = Modifier.fillMaxWidth()) {
+                    Column(
+                        modifier = Modifier.fillMaxWidth().padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Text("Bluetooth permission required", style = MaterialTheme.typography.titleMedium)
+                        Text(
+                            "CueCall needs Bluetooth permission to read bonded printers and connect to the selected printer.",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        Button(
+                            onClick = { permissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT) }
+                        ) {
+                            Text("Grant Permission")
+                        }
+                    }
+                }
+            }
+
+            if (!uiState.bluetoothEnabled) {
+                Card(modifier = Modifier.fillMaxWidth()) {
+                    Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+                        Text("Bluetooth is disabled", style = MaterialTheme.typography.titleMedium)
+                        Text(
+                            "Enable Bluetooth in Android settings to view paired printers.",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                }
+            }
+
             // Connection status
             ConnectionStatusCard(
                 isConnected = uiState.isConnected,
@@ -78,7 +135,16 @@ fun PrinterSettingsScreen(
             SectionHeader("Bluetooth Paired Devices")
             if (uiState.availablePairedDevices.isEmpty()) {
                 Text(
-                    "No Bluetooth devices paired on this device.\nPair a printer in Android Bluetooth settings first.",
+                    when {
+                        requiresBluetoothConnectPermission && !uiState.connectPermissionGranted ->
+                            "Grant Bluetooth permission to load bonded printers."
+                        !uiState.bluetoothAvailable ->
+                            "Bluetooth is not available on this device."
+                        !uiState.bluetoothEnabled ->
+                            "Enable Bluetooth, then return to refresh the bonded printer list."
+                        else ->
+                            "No Bluetooth devices paired on this device.\nPair a printer in Android Bluetooth settings first."
+                    },
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

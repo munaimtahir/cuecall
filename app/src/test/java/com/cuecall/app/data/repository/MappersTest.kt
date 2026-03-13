@@ -42,23 +42,22 @@ class MappersTest {
     }
 
     @Test
-    fun `counter with multiple serviceIds roundtrips correctly`() {
+    fun `counter with assigned service roundtrips correctly`() {
         val counter = Counter(
             id = "ctr1", clinicId = "c1", name = "Window 1",
-            serviceIds = listOf("svc1", "svc2", "svc3")
+            serviceId = "svc1"
         )
         val entity = counter.toEntity()
         val domain = entity.toDomain()
-        assertEquals(3, domain.serviceIds.size)
-        assertEquals(listOf("svc1", "svc2", "svc3"), domain.serviceIds)
+        assertEquals("svc1", domain.serviceId)
     }
 
     @Test
-    fun `counter with empty serviceIds roundtrips correctly`() {
+    fun `counter with no assigned service roundtrips correctly`() {
         val counter = Counter(id = "ctr2", clinicId = "c1", name = "Room 2")
         val entity = counter.toEntity()
         val domain = entity.toDomain()
-        assertTrue(domain.serviceIds.isEmpty())
+        assertNull(domain.serviceId)
     }
 
     @Test

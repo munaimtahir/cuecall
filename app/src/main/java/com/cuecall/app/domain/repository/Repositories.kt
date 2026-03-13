@@ -7,6 +7,7 @@ interface ClinicRepository {
     fun observeClinic(clinicId: String): Flow<Clinic?>
     suspend fun saveClinic(clinic: Clinic)
     suspend fun getClinic(clinicId: String): Clinic?
+    suspend fun getAnyClinic(): Clinic?
 }
 
 interface ServiceRepository {
@@ -16,13 +17,16 @@ interface ServiceRepository {
     suspend fun saveService(service: Service)
     suspend fun deleteService(serviceId: String)
     suspend fun setServiceActive(serviceId: String, isActive: Boolean)
+    suspend fun assignBlankClinicId(clinicId: String)
 }
 
 interface CounterRepository {
     fun observeActiveCounters(clinicId: String): Flow<List<Counter>>
     suspend fun getCounter(counterId: String): Counter?
+    suspend fun getAllCounters(clinicId: String): List<Counter>
     suspend fun saveCounter(counter: Counter)
     suspend fun deleteCounter(counterId: String)
+    suspend fun assignBlankClinicId(clinicId: String)
 }
 
 interface QueueDayRepository {

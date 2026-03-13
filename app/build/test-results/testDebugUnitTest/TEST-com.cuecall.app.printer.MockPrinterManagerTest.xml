@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cuecall.app.printer.MockPrinterManagerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-03-11T11:11:41" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.022">
+  <properties/>
+  <testcase name="connect sets connected state" classname="com.cuecall.app.printer.MockPrinterManagerTest" time="0.011"/>
+  <testcase name="initial state is disconnected" classname="com.cuecall.app.printer.MockPrinterManagerTest" time="0.0"/>
+  <testcase name="disconnect clears connected state" classname="com.cuecall.app.printer.MockPrinterManagerTest" time="0.004"/>
+  <testcase name="printTicket always succeeds in mock" classname="com.cuecall.app.printer.MockPrinterManagerTest" time="0.006"/>
+  <system-out><![CDATA[MockPrinter DEBUG: Connected to mock printer at AA:BB:CC:DD:EE:FF
+MockPrinter DEBUG: Connected to mock printer at AA:BB:CC:DD:EE:FF
+MockPrinter DEBUG: Disconnected from mock printer
+MockPrinter DEBUG: Connected to mock printer at AA:BB:CC:DD:EE:FF
+MockPrinter INFO: 
+--------------------------------
+  Test Clinic
+--------------------------------
+  Token: G-005
+  Service: General OPD
+  Time: 11:11 11-03-2026
+--------------------------------
+  Please wait for your turn
+--------------------------------
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

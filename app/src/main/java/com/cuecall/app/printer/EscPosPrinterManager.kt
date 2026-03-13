@@ -40,6 +40,7 @@ class EscPosPrinterManager @Inject constructor(
     override suspend fun connect(address: String): Result<Unit> = runCatching {
         withContext(Dispatchers.IO) {
             val adapter = bluetoothAdapter ?: error("Bluetooth not available on this device")
+            require(adapter.isEnabled) { "Bluetooth is disabled" }
             val device = adapter.getRemoteDevice(address)
             val newSocket = device.createRfcommSocketToServiceRecord(SPP_UUID)
             adapter.cancelDiscovery()
@@ -48,6 +49,12 @@ class EscPosPrinterManager @Inject constructor(
             outputStream = newSocket.outputStream
             connectedDevice = device
             Log.i("EscPosPrinter", "Connected to ${device.name} ($address)")
+            Unit
+        }
+    }.recoverCatching { error ->
+        when (error) {
+            is SecurityException -> error("Bluetooth permission denied")
+            else -> throw error
         }
     }
 

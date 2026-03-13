@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cuecall.app.domain.usecase.GenerateTokenUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-03-11T11:11:34" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="6.186">
+  <properties/>
+  <testcase name="generates token with correct display number format" classname="com.cuecall.app.domain.usecase.GenerateTokenUseCaseTest" time="6.003"/>
+  <testcase name="returns validator failure message when setup is incomplete" classname="com.cuecall.app.domain.usecase.GenerateTokenUseCaseTest" time="0.09"/>
+  <testcase name="token prefix is blank produces plain padded number" classname="com.cuecall.app.domain.usecase.GenerateTokenUseCaseTest" time="0.09"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToClinicSetup: () -> Unit,
+    onNavigateToDeviceAssignment: () -> Unit,
     onNavigateToServices: () -> Unit,
     onNavigateToCounters: () -> Unit,
     onNavigateToPrinter: () -> Unit,
@@ -36,6 +38,18 @@ fun SettingsScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
+            SettingsNavigationItem(
+                icon = Icons.Default.LocalHospital,
+                title = "Clinic Setup",
+                subtitle = "Configure clinic identity and required setup",
+                onClick = onNavigateToClinicSetup
+            )
+            SettingsNavigationItem(
+                icon = Icons.Default.Devices,
+                title = "Device Assignment",
+                subtitle = "Set this device mode and counter assignment",
+                onClick = onNavigateToDeviceAssignment
+            )
             SettingsNavigationItem(
                 icon = Icons.Default.MedicalServices,
                 title = "Services",

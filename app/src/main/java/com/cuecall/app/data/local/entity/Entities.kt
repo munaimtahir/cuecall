@@ -33,13 +33,13 @@ data class ServiceEntity(
 
 @Entity(
     tableName = "counters",
-    indices = [Index("clinicId")]
+    indices = [Index("clinicId"), Index("serviceId")]
 )
 data class CounterEntity(
     @PrimaryKey val id: String,
     val clinicId: String,
     val name: String,
-    val serviceIdsJson: String = "[]", // JSON array of service IDs
+    val serviceId: String? = null,
     val isActive: Boolean = true,
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = System.currentTimeMillis()

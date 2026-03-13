@@ -22,8 +22,10 @@ class QueueStateMachineTest {
     @MockK lateinit var settingsRepository: SettingsRepository
     @MockK lateinit var callEventRepository: CallEventRepository
     @MockK lateinit var queueDayRepository: QueueDayRepository
+    @MockK lateinit var setupValidator: SetupValidator
 
     private val testSettings = AppSettings(clinicId = "clinic1", deviceId = "device1")
+    private val testClinic = Clinic(id = "clinic1", name = "Test Clinic")
     private val testQueueDay = QueueDay(
         id = "clinic1_2024-01-15", clinicId = "clinic1", businessDate = "2024-01-15"
     )
@@ -41,6 +43,7 @@ class QueueStateMachineTest {
         coEvery { queueDayRepository.getOrCreateQueueDay(any(), any()) } returns testQueueDay
         coEvery { callEventRepository.logEvent(any()) } just Runs
         coEvery { tokenRepository.updateTokenStatus(any(), any(), any(), any()) } just Runs
+        coEvery { setupValidator.requireClinicSetup() } returns ClinicSetupContext(testSettings, testClinic)
     }
 
     // --- CallNext ---
@@ -55,7 +58,7 @@ class QueueStateMachineTest {
         coEvery { tokenRepository.getTokensForDay(testQueueDay.id) } returns tokens
 
         val useCase = CallNextTokenUseCase(
-            tokenRepository, settingsRepository, callEventRepository, queueDayRepository
+            tokenRepository, settingsRepository, callEventRepository, queueDayRepository, setupValidator
         )
         val result = useCase("svc1")
 
@@ -73,7 +76,7 @@ class QueueStateMachineTest {
         coEvery { tokenRepository.getTokensForDay(testQueueDay.id) } returns emptyList()
 
         val useCase = CallNextTokenUseCase(
-            tokenRepository, settingsRepository, callEventRepository, queueDayRepository
+            tokenRepository, settingsRepository, callEventRepository, queueDayRepository, setupValidator
         )
         val result = useCase("svc1")
 

@@ -18,14 +18,14 @@ class MockPrinterManager @Inject constructor() : PrinterManager {
     override suspend fun connect(address: String): Result<Unit> {
         connected = true
         printerName = "Mock Printer ($address)"
-        Log.d("MockPrinter", "Connected to mock printer at $address")
+        logDebug("Connected to mock printer at $address")
         return Result.success(Unit)
     }
 
     override fun disconnect() {
         connected = false
         printerName = null
-        Log.d("MockPrinter", "Disconnected from mock printer")
+        logDebug("Disconnected from mock printer")
     }
 
     override fun isConnected(): Boolean = connected
@@ -33,8 +33,18 @@ class MockPrinterManager @Inject constructor() : PrinterManager {
     override fun connectedPrinterName(): String? = printerName
 
     override suspend fun printTicket(ticket: TokenTicket): Result<Unit> {
-        Log.i("MockPrinter", buildTicketLog(ticket))
+        logInfo(buildTicketLog(ticket))
         return Result.success(Unit)
+    }
+
+    private fun logDebug(message: String) {
+        runCatching { Log.d("MockPrinter", message) }
+            .getOrElse { println("MockPrinter DEBUG: $message") }
+    }
+
+    private fun logInfo(message: String) {
+        runCatching { Log.i("MockPrinter", message) }
+            .getOrElse { println("MockPrinter INFO: $message") }
     }
 
     private fun buildTicketLog(ticket: TokenTicket): String {

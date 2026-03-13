@@ -58,15 +58,16 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS `clinics` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `logoUrl` TEXT NOT NULL, `address` TEXT NOT NULL, `phone` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `services` (`id` TEXT NOT NULL, `clinicId` TEXT NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `tokenPrefix` TEXT NOT NULL, `isActive` INTEGER NOT NULL, `sortOrder` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_services_clinicId` ON `services` (`clinicId`)");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_services_isActive` ON `services` (`isActive`)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `counters` (`id` TEXT NOT NULL, `clinicId` TEXT NOT NULL, `name` TEXT NOT NULL, `serviceIdsJson` TEXT NOT NULL, `isActive` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `counters` (`id` TEXT NOT NULL, `clinicId` TEXT NOT NULL, `name` TEXT NOT NULL, `serviceId` TEXT, `isActive` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_counters_clinicId` ON `counters` (`clinicId`)");
+        db.execSQL("CREATE INDEX IF NOT EXISTS `index_counters_serviceId` ON `counters` (`serviceId`)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `queue_days` (`id` TEXT NOT NULL, `clinicId` TEXT NOT NULL, `businessDate` TEXT NOT NULL, `isOpen` INTEGER NOT NULL, `resetStrategy` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_queue_days_clinicId` ON `queue_days` (`clinicId`)");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_queue_days_businessDate` ON `queue_days` (`businessDate`)");
@@ -80,7 +81,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_call_events_tokenId` ON `call_events` (`tokenId`)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `devices` (`id` TEXT NOT NULL, `clinicId` TEXT NOT NULL, `deviceName` TEXT NOT NULL, `deviceMode` TEXT NOT NULL, `assignedServiceId` TEXT, `assignedCounterId` TEXT, `printerAddress` TEXT, `lastSeenAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e0f93fc0b5891e8cc17c06c588bb3a97')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '913d475514ed6b48e3b3f7fd0ff704b3')");
       }
 
       @Override
@@ -177,13 +178,14 @@ public final class AppDatabase_Impl extends AppDatabase {
         _columnsCounters.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCounters.put("clinicId", new TableInfo.Column("clinicId", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCounters.put("name", new TableInfo.Column("name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsCounters.put("serviceIdsJson", new TableInfo.Column("serviceIdsJson", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCounters.put("serviceId", new TableInfo.Column("serviceId", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCounters.put("isActive", new TableInfo.Column("isActive", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCounters.put("createdAt", new TableInfo.Column("createdAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCounters.put("updatedAt", new TableInfo.Column("updatedAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysCounters = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesCounters = new HashSet<TableInfo.Index>(1);
+        final HashSet<TableInfo.Index> _indicesCounters = new HashSet<TableInfo.Index>(2);
         _indicesCounters.add(new TableInfo.Index("index_counters_clinicId", false, Arrays.asList("clinicId"), Arrays.asList("ASC")));
+        _indicesCounters.add(new TableInfo.Index("index_counters_serviceId", false, Arrays.asList("serviceId"), Arrays.asList("ASC")));
         final TableInfo _infoCounters = new TableInfo("counters", _columnsCounters, _foreignKeysCounters, _indicesCounters);
         final TableInfo _existingCounters = TableInfo.read(db, "counters");
         if (!_infoCounters.equals(_existingCounters)) {
@@ -284,7 +286,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "e0f93fc0b5891e8cc17c06c588bb3a97", "e11fb8f8b0dd01d1965855906c206177");
+    }, "913d475514ed6b48e3b3f7fd0ff704b3", "4b0127a5f5d3311024e1b9d7fa6d2c3e");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

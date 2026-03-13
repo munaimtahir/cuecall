@@ -52,10 +52,24 @@ fun CueCallNavGraph(
         composable(Screen.Settings.route) {
             SettingsScreen(
                 onNavigateBack = { navController.popBackStack() },
+                onNavigateToClinicSetup = { navController.navigate(Screen.ClinicSetup.route) },
+                onNavigateToDeviceAssignment = { navController.navigate(Screen.DeviceAssignment.route) },
                 onNavigateToServices = { navController.navigate(Screen.ServiceManagement.route) },
                 onNavigateToCounters = { navController.navigate(Screen.CounterManagement.route) },
                 onNavigateToPrinter = { navController.navigate(Screen.PrinterSettings.route) },
                 onNavigateToHistory = { navController.navigate(Screen.DailyHistory.route) }
+            )
+        }
+
+        composable(Screen.ClinicSetup.route) {
+            ClinicSetupScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.DeviceAssignment.route) {
+            DeviceAssignmentScreen(
+                onNavigateBack = { navController.popBackStack() }
             )
         }
 

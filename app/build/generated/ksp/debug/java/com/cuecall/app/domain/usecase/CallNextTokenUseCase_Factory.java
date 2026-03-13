@@ -34,32 +34,37 @@ public final class CallNextTokenUseCase_Factory implements Factory<CallNextToken
 
   private final Provider<QueueDayRepository> queueDayRepositoryProvider;
 
+  private final Provider<SetupValidator> setupValidatorProvider;
+
   public CallNextTokenUseCase_Factory(Provider<TokenRepository> tokenRepositoryProvider,
       Provider<SettingsRepository> settingsRepositoryProvider,
       Provider<CallEventRepository> callEventRepositoryProvider,
-      Provider<QueueDayRepository> queueDayRepositoryProvider) {
+      Provider<QueueDayRepository> queueDayRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
     this.tokenRepositoryProvider = tokenRepositoryProvider;
     this.settingsRepositoryProvider = settingsRepositoryProvider;
     this.callEventRepositoryProvider = callEventRepositoryProvider;
     this.queueDayRepositoryProvider = queueDayRepositoryProvider;
+    this.setupValidatorProvider = setupValidatorProvider;
   }
 
   @Override
   public CallNextTokenUseCase get() {
-    return newInstance(tokenRepositoryProvider.get(), settingsRepositoryProvider.get(), callEventRepositoryProvider.get(), queueDayRepositoryProvider.get());
+    return newInstance(tokenRepositoryProvider.get(), settingsRepositoryProvider.get(), callEventRepositoryProvider.get(), queueDayRepositoryProvider.get(), setupValidatorProvider.get());
   }
 
   public static CallNextTokenUseCase_Factory create(
       Provider<TokenRepository> tokenRepositoryProvider,
       Provider<SettingsRepository> settingsRepositoryProvider,
       Provider<CallEventRepository> callEventRepositoryProvider,
-      Provider<QueueDayRepository> queueDayRepositoryProvider) {
-    return new CallNextTokenUseCase_Factory(tokenRepositoryProvider, settingsRepositoryProvider, callEventRepositoryProvider, queueDayRepositoryProvider);
+      Provider<QueueDayRepository> queueDayRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
+    return new CallNextTokenUseCase_Factory(tokenRepositoryProvider, settingsRepositoryProvider, callEventRepositoryProvider, queueDayRepositoryProvider, setupValidatorProvider);
   }
 
   public static CallNextTokenUseCase newInstance(TokenRepository tokenRepository,
       SettingsRepository settingsRepository, CallEventRepository callEventRepository,
-      QueueDayRepository queueDayRepository) {
-    return new CallNextTokenUseCase(tokenRepository, settingsRepository, callEventRepository, queueDayRepository);
+      QueueDayRepository queueDayRepository, SetupValidator setupValidator) {
+    return new CallNextTokenUseCase(tokenRepository, settingsRepository, callEventRepository, queueDayRepository, setupValidator);
   }
 }

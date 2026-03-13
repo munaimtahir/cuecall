@@ -8,138 +8,67 @@ Use this checklist for every release candidate. Run on a real Android device con
 - [ ] Firebase project created and `google-services.json` installed
 - [ ] App installed on at least 2 devices (one for reception, one for counter/display)
 - [ ] Firestore rules allow read/write for anonymous users
-- [ ] Bluetooth thermal printer is paired in Android system Bluetooth settings (optional for core flows)
+- [ ] Bluetooth thermal printer is paired in Android system Bluetooth settings
 
 ---
 
-## 1. First Launch / Setup
+## 1. Initial Clinic Setup
 - [ ] App installs without crash on Android 8.0+ (API 26+)
 - [ ] Mode selection screen appears on first launch
-- [ ] Settings screen opens from mode selection
-- [ ] Firebase anonymous sign-in completes silently (no login screen)
-- [ ] Room database initializes without crash (no crash on app open)
+- [ ] Settings opens from mode selection
+- [ ] `Settings -> Clinic Setup` opens
+- [ ] Saving clinic name succeeds
+- [ ] Returning to `Clinic Setup` shows the saved clinic values
+- [ ] After save, service/counter screens no longer behave as if setup is incomplete
 
----
-
-## 2. Setup — Services
+## 2. Service Setup
 - [ ] Service management screen opens
 - [ ] Adding a service with name + prefix + code saves and appears in list
 - [ ] Token prefix is forced to uppercase and max 3 chars
-- [ ] Inactive toggle hides service from reception screen
-- [ ] Deleting a service removes it from the list
-- [ ] 3 demo services appear on first launch (General OPD G, Ultrasound U, Lab L)
+- [ ] If no clinic is configured, service add shows a precise setup error
 
----
-
-## 3. Setup — Counters
+## 3. Counter Setup
 - [ ] Counter management screen opens
-- [ ] Adding a counter with a name saves and appears in list
-- [ ] Deleting a counter removes it
+- [ ] Creating a counter requires selecting a service
+- [ ] Added counter shows both counter name and linked service name
+- [ ] Editing a counter allows changing the linked service
+- [ ] Existing counters without a service show safely as unassigned until edited
 
----
-
-## 4. Printer Settings
-- [ ] Printer settings screen opens
-- [ ] Bluetooth paired devices from Android system appear in list
-- [ ] Selecting a device saves it as the paired printer
-- [ ] Paper width selection (58mm / 80mm) saves correctly
-- [ ] Connect button triggers connection attempt
-- [ ] Connection status shows correct state
-
----
-
-## 5. Reception Flow
-- [ ] Reception screen opens from mode selection
+## 4. Token Generation
+- [ ] Reception screen opens
 - [ ] Active services appear as selectable cards
-- [ ] Selecting a service highlights it
-- [ ] Tapping "Generate Token" with a service selected:
-  - [ ] Token number is generated (G-001 on first token)
-  - [ ] Token appears on screen with display number
-  - [ ] Token is saved to Firestore
-- [ ] Second token increments: G-002
-- [ ] Token from different service has its own sequence: U-001
-- [ ] Tapping "Generate Token" without network shows error (not crash)
-- [ ] "Reprint Last Token" button appears after first token
-- [ ] Reprint sends to mock printer (logs to Logcat in debug)
-- [ ] "Reprint Last Token" sends ticket with correct fields
+- [ ] Generating a token after clinic setup succeeds
+- [ ] First token for a service starts at `PREFIX-001`
+- [ ] Second token increments correctly
+- [ ] Token generation no longer shows a generic “complete setup” error when clinic + service are valid
+- [ ] If setup is invalid, the error names the missing prerequisite precisely
 
----
+## 5. Counter Flow
+- [ ] Counter screen uses the linked counter service when a counter is assigned to the device
+- [ ] Waiting tokens list only shows tokens for that service
+- [ ] `Call Next` calls the lowest-number waiting token
+- [ ] `Recall`, `Skip`, and `Done` work without crash
+- [ ] If the linked service is inactive or missing, the counter screen shows a precise error
 
-## 6. Counter Flow
-- [ ] Counter screen opens from mode selection
-- [ ] Waiting tokens list shows tokens generated at reception
-- [ ] "Call Next" calls the lowest-number waiting token
-- [ ] Called token appears in "Now Serving" card
-- [ ] Called token disappears from the waiting list
-- [ ] "Recall" button sets token to RECALLED
-- [ ] "Skip" button sets token to SKIPPED; token removed from active card
-- [ ] "Done" button sets token to COMPLETED; token removed from active card
-- [ ] "Call Next" shows "No tokens waiting" when queue is empty
-- [ ] Calling next on empty queue does not crash
+## 6. Printer Permissions and Bonded Devices
+- [ ] `Settings -> Printer Settings` opens
+- [ ] On Android 12+ the screen requests Bluetooth permission
+- [ ] If permission is denied, the screen explains that Bluetooth permission is required
+- [ ] If Bluetooth is disabled, the screen explains that clearly
+- [ ] Already paired Bluetooth printers appear without starting discovery
+- [ ] Each printer row shows device name and MAC address
 
----
+## 7. Printer Selection and Persistence
+- [ ] Selecting a bonded printer marks it as selected
+- [ ] Leaving and reopening printer settings preserves the selected printer
+- [ ] `Connect` attempts a real connection
+- [ ] Connection success or failure is shown honestly
 
-## 7. Display Board Flow
-- [ ] Display mode opens full-screen with dark background
-- [ ] Clinic name appears in header (or "CueCall" if not configured)
-- [ ] Current time shown and updates each minute
-- [ ] After a token is called on counter device, display updates within 3 seconds
-- [ ] "Now Serving" shows the currently called token number in large format
-- [ ] Waiting tokens appear below (up to 8)
-- [ ] Back button shows "Exit Display Mode?" confirmation dialog
-- [ ] Pressing "Stay" dismisses dialog and stays in display mode
-- [ ] Pressing "Exit" returns to mode selection
+## 8. Printing Outcome
+- [ ] After token generation, printing either succeeds on the selected printer or shows a clean connection/permission error
+- [ ] No mock-success path is shown for real hardware testing
 
----
-
-## 8. Daily History
-- [ ] Daily history screen shows today's date
-- [ ] Summary row shows correct Issued / Done / Skipped / Waiting counts
-- [ ] Token list shows all tokens for today sorted newest-first
-- [ ] Status color: green for COMPLETED, red for SKIPPED, blue for CALLED/RECALLED
-
----
-
-## 9. Real-Time Sync
-- [ ] Token generated on Device A appears on Device B display within 3 seconds
-- [ ] Token called on Device B counter updates display on Device C within 3 seconds
-- [ ] Token completed on counter disappears from display waiting list
-- [ ] Skipped token disappears from display waiting list
-
----
-
-## 10. Offline/Resilience
-- [ ] Turning off Wi-Fi then generating a token shows "no network connection" error
-- [ ] Re-enabling Wi-Fi allows token generation
-- [ ] With Wi-Fi off, counter actions (call/skip/complete) succeed locally and sync when reconnected
-- [ ] Display shows stale data (Firestore cache) when offline with no crash
-- [ ] App re-open after force-close restores queue state from Room cache
-
----
-
-## 11. Data Integrity
-- [ ] Two devices generating tokens simultaneously do not produce duplicate numbers for the same service/day
-  - Test: Generate rapidly from 2 devices at same time, verify no duplicate displayNumbers
-- [ ] Tokens from service A do not affect sequence of service B
-- [ ] After daily reset (midnight), new tokens start from G-001
-
----
-
-## 12. Edge Cases
-- [ ] App handles 0 services gracefully (reception shows empty state)
-- [ ] App handles 0 counters gracefully (display still shows token number)
-- [ ] Very long clinic name does not break display layout
-- [ ] Token number 999 displays as G-999 (no truncation)
-
----
-
-## Known Limitations (v1 MVP)
-
-| Limitation | Notes |
-|---|---|
-| Token generation blocked offline | By design — requires Firestore atomic sequence |
-| No voice announcements | TTS deferred to v2 |
-| No Firebase Auth UI | Anonymous auth only; no login screen |
-| Printer requires real hardware for release builds | Debug builds use MockPrinterManager |
-| No multi-branch support | Single clinic per installation |
-| No appointment integration | Queue-only, walk-in tokens |
+## Known Limitations (MVP)
+- Token generation still requires network because Firestore sequence reservation is authoritative
+- Counter-to-device assignment still depends on existing device settings; this change only fixes counter-to-service linkage
+- Printer success still depends on target hardware supporting generic ESC/POS over RFCOMM

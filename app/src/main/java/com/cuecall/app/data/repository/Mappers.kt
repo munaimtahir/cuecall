@@ -17,15 +17,10 @@ fun ServiceEntity.toDomain() = Service(
     createdAt = createdAt, updatedAt = updatedAt
 )
 
-fun CounterEntity.toDomain(): Counter {
-    val ids = if (serviceIdsJson.isBlank() || serviceIdsJson == "[]") emptyList()
-    else serviceIdsJson.removeSurrounding("[", "]").split(",")
-        .map { it.trim().removeSurrounding("\"") }.filter { it.isNotBlank() }
-    return Counter(
-        id = id, clinicId = clinicId, name = name, serviceIds = ids,
-        isActive = isActive, createdAt = createdAt, updatedAt = updatedAt
-    )
-}
+fun CounterEntity.toDomain() = Counter(
+    id = id, clinicId = clinicId, name = name, serviceId = serviceId,
+    isActive = isActive, createdAt = createdAt, updatedAt = updatedAt
+)
 
 fun QueueDayEntity.toDomain() = QueueDay(
     id = id, clinicId = clinicId, businessDate = businessDate, isOpen = isOpen,
@@ -61,13 +56,10 @@ fun Service.toEntity() = ServiceEntity(
     createdAt = createdAt, updatedAt = updatedAt
 )
 
-fun Counter.toEntity(): CounterEntity {
-    val idsJson = "[${serviceIds.joinToString(",") { "\"$it\"" }}]"
-    return CounterEntity(
-        id = id, clinicId = clinicId, name = name, serviceIdsJson = idsJson,
-        isActive = isActive, createdAt = createdAt, updatedAt = updatedAt
-    )
-}
+fun Counter.toEntity() = CounterEntity(
+    id = id, clinicId = clinicId, name = name, serviceId = serviceId,
+    isActive = isActive, createdAt = createdAt, updatedAt = updatedAt
+)
 
 fun QueueDay.toEntity() = QueueDayEntity(
     id = id, clinicId = clinicId, businessDate = businessDate, isOpen = isOpen,

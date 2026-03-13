@@ -34,32 +34,37 @@ public final class ResetQueueDayUseCase_Factory implements Factory<ResetQueueDay
 
   private final Provider<SettingsRepository> settingsRepositoryProvider;
 
+  private final Provider<SetupValidator> setupValidatorProvider;
+
   public ResetQueueDayUseCase_Factory(Provider<QueueDayRepository> queueDayRepositoryProvider,
       Provider<TokenSequenceRepository> tokenSequenceRepositoryProvider,
       Provider<ServiceRepository> serviceRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider) {
+      Provider<SettingsRepository> settingsRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
     this.queueDayRepositoryProvider = queueDayRepositoryProvider;
     this.tokenSequenceRepositoryProvider = tokenSequenceRepositoryProvider;
     this.serviceRepositoryProvider = serviceRepositoryProvider;
     this.settingsRepositoryProvider = settingsRepositoryProvider;
+    this.setupValidatorProvider = setupValidatorProvider;
   }
 
   @Override
   public ResetQueueDayUseCase get() {
-    return newInstance(queueDayRepositoryProvider.get(), tokenSequenceRepositoryProvider.get(), serviceRepositoryProvider.get(), settingsRepositoryProvider.get());
+    return newInstance(queueDayRepositoryProvider.get(), tokenSequenceRepositoryProvider.get(), serviceRepositoryProvider.get(), settingsRepositoryProvider.get(), setupValidatorProvider.get());
   }
 
   public static ResetQueueDayUseCase_Factory create(
       Provider<QueueDayRepository> queueDayRepositoryProvider,
       Provider<TokenSequenceRepository> tokenSequenceRepositoryProvider,
       Provider<ServiceRepository> serviceRepositoryProvider,
-      Provider<SettingsRepository> settingsRepositoryProvider) {
-    return new ResetQueueDayUseCase_Factory(queueDayRepositoryProvider, tokenSequenceRepositoryProvider, serviceRepositoryProvider, settingsRepositoryProvider);
+      Provider<SettingsRepository> settingsRepositoryProvider,
+      Provider<SetupValidator> setupValidatorProvider) {
+    return new ResetQueueDayUseCase_Factory(queueDayRepositoryProvider, tokenSequenceRepositoryProvider, serviceRepositoryProvider, settingsRepositoryProvider, setupValidatorProvider);
   }
 
   public static ResetQueueDayUseCase newInstance(QueueDayRepository queueDayRepository,
       TokenSequenceRepository tokenSequenceRepository, ServiceRepository serviceRepository,
-      SettingsRepository settingsRepository) {
-    return new ResetQueueDayUseCase(queueDayRepository, tokenSequenceRepository, serviceRepository, settingsRepository);
+      SettingsRepository settingsRepository, SetupValidator setupValidator) {
+    return new ResetQueueDayUseCase(queueDayRepository, tokenSequenceRepository, serviceRepository, settingsRepository, setupValidator);
   }
 }

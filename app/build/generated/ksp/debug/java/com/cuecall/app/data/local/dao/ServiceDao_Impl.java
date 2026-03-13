@@ -39,6 +39,8 @@ public final class ServiceDao_Impl implements ServiceDao {
 
   private final SharedSQLiteStatement __preparedStmtOfSetActive;
 
+  private final SharedSQLiteStatement __preparedStmtOfAssignBlankClinicId;
+
   public ServiceDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfServiceEntity = new EntityInsertionAdapter<ServiceEntity>(__db) {
@@ -76,6 +78,14 @@ public final class ServiceDao_Impl implements ServiceDao {
       @NonNull
       public String createQuery() {
         final String _query = "UPDATE services SET isActive = ?, updatedAt = ? WHERE id = ?";
+        return _query;
+      }
+    };
+    this.__preparedStmtOfAssignBlankClinicId = new SharedSQLiteStatement(__db) {
+      @Override
+      @NonNull
+      public String createQuery() {
+        final String _query = "UPDATE services SET clinicId = ? WHERE clinicId = ''";
         return _query;
       }
     };
@@ -152,6 +162,32 @@ public final class ServiceDao_Impl implements ServiceDao {
           }
         } finally {
           __preparedStmtOfSetActive.release(_stmt);
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object assignBlankClinicId(final String clinicId,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfAssignBlankClinicId.acquire();
+        int _argIndex = 1;
+        _stmt.bindString(_argIndex, clinicId);
+        try {
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
+        } finally {
+          __preparedStmtOfAssignBlankClinicId.release(_stmt);
         }
       }
     }, $completion);

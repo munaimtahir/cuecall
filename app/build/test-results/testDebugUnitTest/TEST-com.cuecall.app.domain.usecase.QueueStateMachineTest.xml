@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cuecall.app.domain.usecase.QueueStateMachineTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-03-11T11:11:40" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="1.16">
+  <properties/>
+  <testcase name="recall succeeds on CALLED token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.496"/>
+  <testcase name="recall succeeds on RECALLED token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.022"/>
+  <testcase name="callNext returns null when no waiting tokens" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.365"/>
+  <testcase name="complete succeeds on RECALLED token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.039"/>
+  <testcase name="complete succeeds on CALLED token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.026"/>
+  <testcase name="complete fails on SKIPPED token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.035"/>
+  <testcase name="skip succeeds on WAITING token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.024"/>
+  <testcase name="callNext returns the lowest-number waiting token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.031"/>
+  <testcase name="skip fails on COMPLETED token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.038"/>
+  <testcase name="recall fails on WAITING token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.032"/>
+  <testcase name="skip succeeds on CALLED token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.031"/>
+  <testcase name="complete fails on WAITING token" classname="com.cuecall.app.domain.usecase.QueueStateMachineTest" time="0.017"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

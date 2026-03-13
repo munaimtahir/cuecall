@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.cuecall.app.domain.model.Service
 import com.cuecall.app.domain.model.Token
 import com.cuecall.app.domain.repository.ServiceRepository
-import com.cuecall.app.domain.repository.SettingsRepository
 import com.cuecall.app.domain.usecase.GenerateTokenUseCase
+import com.cuecall.app.domain.usecase.SetupValidator
 import com.cuecall.app.printer.PrinterManager
 import com.cuecall.app.printer.TokenTicket
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,9 +35,9 @@ sealed class PrintStatus {
 @HiltViewModel
 class ReceptionViewModel @Inject constructor(
     private val serviceRepository: ServiceRepository,
-    private val settingsRepository: SettingsRepository,
     private val generateTokenUseCase: GenerateTokenUseCase,
-    private val printerManager: PrinterManager
+    private val printerManager: PrinterManager,
+    private val setupValidator: SetupValidator
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ReceptionUiState())
@@ -49,11 +49,26 @@ class ReceptionViewModel @Inject constructor(
 
     private fun loadData() {
         viewModelScope.launch {
-            val settings = settingsRepository.getSettings()
-            val clinicId = settings.clinicId
-            _uiState.update { it.copy(clinicName = clinicId, ticketFooterText = settings.ticketFooterText) }
+            val setup = runCatching { setupValidator.requireClinicSetup() }
+                .onFailure { error ->
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            error = error.message ?: "No clinic configured"
+                        )
+                    }
+                }
+                .getOrNull() ?: return@launch
 
-            serviceRepository.observeActiveServices(clinicId)
+            _uiState.update {
+                it.copy(
+                    clinicName = setup.clinic.name,
+                    ticketFooterText = setup.settings.ticketFooterText,
+                    isLoading = false
+                )
+            }
+
+            serviceRepository.observeActiveServices(setup.clinic.id)
                 .collect { services ->
                     _uiState.update { state ->
                         state.copy(

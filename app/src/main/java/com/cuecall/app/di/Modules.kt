@@ -35,7 +35,7 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, AppDatabase.DATABASE_NAME)
-            .fallbackToDestructiveMigration()
+            .addMigrations(AppDatabase.MIGRATION_1_2)
             .build()
 
     @Provides fun provideClinicDao(db: AppDatabase): ClinicDao = db.clinicDao()
@@ -102,10 +102,6 @@ object PrinterModule {
     @Provides
     @Singleton
     fun providePrinterManager(
-        mockPrinterManager: MockPrinterManager,
         escPosPrinterManager: EscPosPrinterManager
-    ): PrinterManager {
-        // Use mock printer in debug builds so tests work without hardware
-        return if (BuildConfig.DEBUG) mockPrinterManager else escPosPrinterManager
-    }
+    ): PrinterManager = escPosPrinterManager
 }

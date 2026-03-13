@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModelTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-03-11T11:11:41" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.145">
+  <properties/>
+  <testcase name="saving counter mode with unlinked counter shows error" classname="com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModelTest" time="0.121"/>
+  <testcase name="saving counter mode persists assigned counter and linked service" classname="com.cuecall.app.ui.screens.settings.DeviceAssignmentViewModelTest" time="0.023"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

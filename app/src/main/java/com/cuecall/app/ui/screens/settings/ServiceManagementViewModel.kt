@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cuecall.app.domain.model.Service
 import com.cuecall.app.domain.repository.ServiceRepository
-import com.cuecall.app.domain.repository.SettingsRepository
+import com.cuecall.app.domain.usecase.SetupValidator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -20,7 +20,7 @@ data class ServiceManagementUiState(
 @HiltViewModel
 class ServiceManagementViewModel @Inject constructor(
     private val serviceRepository: ServiceRepository,
-    private val settingsRepository: SettingsRepository
+    private val setupValidator: SetupValidator
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ServiceManagementUiState())
@@ -30,7 +30,12 @@ class ServiceManagementViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            clinicId = settingsRepository.getSettings().clinicId
+            clinicId = runCatching { setupValidator.requireClinicSetup().clinic.id }
+                .onFailure { error ->
+                    _uiState.update { it.copy(isLoading = false, error = error.message ?: "No clinic configured") }
+                }
+                .getOrNull()
+                ?: return@launch
             serviceRepository.observeActiveServices(clinicId)
                 .collect { services ->
                     _uiState.update { it.copy(services = services, isLoading = false) }
@@ -40,6 +45,10 @@ class ServiceManagementViewModel @Inject constructor(
 
     fun addService(name: String, prefix: String, code: String) {
         viewModelScope.launch {
+            if (clinicId.isBlank()) {
+                _uiState.update { it.copy(error = "No clinic configured") }
+                return@launch
+            }
             val service = Service(
                 id = UUID.randomUUID().toString(),
                 clinicId = clinicId,
